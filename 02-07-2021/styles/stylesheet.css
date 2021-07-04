@@ -1,0 +1,34 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+div.container{
+    /* border: 2px solid black; */
+    margin: auto;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+div.inside-container{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+div.social-content{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+img#user{
+    width: 100px;
+    border-radius: 50px;
+    float: left;
+}
+img.icons{
+    width: 24px;
+    height: 24px;
+}
