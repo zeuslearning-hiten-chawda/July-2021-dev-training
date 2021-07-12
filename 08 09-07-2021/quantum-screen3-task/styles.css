@@ -275,7 +275,7 @@ li#alert:hover  span#in{
 }
 
 li#alert:hover img{
-  content: url("./alerts-active.svg");
+  content: url("./raw/alerts-active.svg");
 }
 
 li#announcement span{
@@ -288,7 +288,7 @@ li#announcement:hover  span#in{
 }
 
 li#announcement:hover img{
-  content: url("./announcements-active.svg");
+  content: url("./raw/announcements-active.svg");
 }
 
 div.dropdown-content-alert:hover{
