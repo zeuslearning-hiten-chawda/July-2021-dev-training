@@ -1,0 +1,19 @@
+username may contain one or more lowercase letters, uppercase letters,0-9 digits , hyhen (-) or underscore(_)
+
+email may contain one or more lowercase letters, uppercase letters,0-9 digits , hyhen (-) or underscore(_) seperated by @ and ends by .com or any domain
+
+password  must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter
+
+USERNAME:
+hiten_chawda_zeuslearning
+hiten-chawda-zeuslearning
+hiten1234
+hiten-chawda
+
+EMAIL:
+chawdahiten30@gmail.com
+hiten.chawda@zeuslearning.com
+hiten.chawda@sakec.ac.in
+hiten_chawda_zeuslearning@gmail.com
+
+pattern="[a-z0-9._-]+|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  
