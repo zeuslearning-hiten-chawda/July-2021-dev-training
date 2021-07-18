@@ -1,0 +1,120 @@
+    <header>
+        <div style="background-color: #232f3c;padding: 8px 0 5px 20px;
+        border-bottom:3px solid #31b9e4;">
+            <img src="../../assets/icons/logo used in header.svg" alt="">
+        </div>
+    </header>
+    <main>
+        <div class="box" >
+
+            <div class="in-container">
+                <img src="../../assets/raw/back_icon.png" alt="" id="back_image">
+                <span id="log">
+                    Log in with Quantum</span>
+            </div>
+
+                <div class="radio-group" style="margin-left: 15px;margin-top: 20px;">
+                    <label  class="radio" style="display: inline-flex;align-items: center;margin-right:30px">
+                        <input type="radio" name="myRadioField" value="District" class="radio__input" >
+                        <div class="radio__radio"></div>
+                        <span style="font-family: Quicksand_Bold;">District</span>
+                    </label>
+                    <label  class="radio" style="display: inline-flex;align-items: center;margin-right: 0;">
+                        <input type="radio" name="myRadioField" value="Independent school" class="radio__input" >
+                        <div class="radio__radio"></div>
+                        <span style="font-family: Quicksand_Bold;">Independent school</span>
+                    </label>
+                </div>
+
+            <!-- <div class="input-state">
+                <div style="color: #6b6b6b;margin-left: 3px;">state</div>
+                <select name="cars" id="cars">
+                    <option value="volvo">Alabama</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div> -->
+            <div class="input-state">
+                <div class="floating-label">State*</div>
+                <div style="position: relative;border-bottom: 1px solid #6b6b6b;">
+                    <span style="font-family: Quicksand_SemiBold;">Alabama</span>
+                    <img style="position: absolute;right: 0;"
+                    src="../../assets/icons/arrow-down.svg" alt="">
+                </div>
+            </div>
+            <div class="input-district">
+                <div class="floating-label">District*</div>
+                <div style="position: relative;border-bottom: 1px solid #6b6b6b;">
+                    <span style="font-family: Quicksand_SemiBold;">Alabama School District</span>
+                    <img style="position: absolute;right: 0;"
+                    src="../../assets/icons/arrow-down.svg" alt="">
+                </div>
+            </div>
+
+            <form action="">
+                <div class="username">
+                    <input type="text" required
+                    pattern="[a-zA-Z0-9._-]+(@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)?"
+                    placeholder="Username/Email ID*">
+                </div>
+                <!-- <div class="username" style="font-family: Quicksand_Regular;">
+                    Username/Email ID*
+                </div> -->
+                <div class="FU" >
+                    FORGOT USERNAME?
+                </div>
+                <div class="password" style="position: relative;">
+                    <input #password id="password" pattern="(.)+" required  type="password"  placeholder="Password*">
+                    <img  (click)="hideShowPassword()" style="position: absolute;right: 0;
+                    bottom: 0;margin-right: -20px;padding-bottom: 2px;"
+                    src="../../assets/icons/preview.svg" alt="">
+                </div>
+                <!-- <div class="password" style="position: relative;">
+                    Password*
+                    <img  style="position: absolute;right: 0;" src="/quantum screen assets//quantum screen assets/icons/preview.svg" alt="">
+                </div> -->
+                <div class="FP">
+                    FORGOT PASSWORD?
+                </div>
+                <div style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;
+                font-family: Quicksand_Regular;">
+                    <img src="../../assets/icons/checkbox-checked.svg" alt="">
+                    <div>Remember me</div>
+                </div>
+                <div style="text-align: center;margin-top: 30px;">
+                    <button type="submit"
+                    style="font-family: Quicksand_SemiBold;
+                    background-color: #3fd28b;
+                    padding: 10px 90px;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    font-size: 16px;" routerLink="/dashboard">
+                        LOG IN
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <div id="footer-1" style="
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin-bottom: 15px;
+            ">
+            <div style="font-family: Quicksand_SemiBold;text-align: end;padding-right:10px;border-right: 1px solid #6b6b6b;color: #338562;">About</div>
+            <div style="font-family: Quicksand_SemiBold;padding-left:10px;color: #338562;">Contact Us</div>
+        </div>
+        <div class="footer-2" style="
+        text-align: center;background-color: #e0e1e1;padding: 10px 0;
+        display: flex;justify-content: center;align-items: center;">
+            <img src="../../assets/icons/logo used in footer.svg" alt=""
+            style="padding-right: 10px;display: inline-block;">
+            <div style="border-left: 1px solid #6b6b6b;display: inline-block;
+            padding-left: 10px;font-family: Quicksand_Regular;">
+                Copyright &copy; 2020-2021
+                <span style="font-family: Quicksand_SemiBold;margin-right: 10px;">Zeus Systems Pvt. Ltd. </span>
+                All rights reserved.
+            </div>
+        </div>
+    </footer>
