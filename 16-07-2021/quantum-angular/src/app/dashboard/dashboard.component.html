@@ -39,14 +39,15 @@
                 <li><a href="#news">CONTENT</a></li>
                 <li><a class="active" href="#home">DASHBOARD</a></li> -->
                 <div class="dropdown-content">
-                    <a href="#" id="main">DASHBOARD</a>
-                    <a href="#" id="main" class="content" onclick="contentView()">
+                    <a  id="main">DASHBOARD
+                      <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="../../assets/raw/dropdown-arrow.jpg" alt="">
+                    </a>
+                    <a  id="main" class="content" (click)="contentView()">
                         CONTENT
                         <img id="sub" style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="../../assets/raw/dropdown-arrow.jpg" alt="">
-                        <a style="display: none;" href="#" id="sub-main">
-                            COURSE CATALOG
-                        </a>
-
+                    </a>
+                    <a style="display: none;"  id="sub-main">
+                      COURSE CATALOG
                     </a>
                     <a id="main" href="#">
                         USERS
@@ -297,10 +298,11 @@
       <img style="margin-left: 20px;" src="../../assets/icons/sort.svg" alt="">
   </div>
   <hr style="clear: both;color:	#888888;margin: 0 20px;">
+  
+  <div id="loading" *ngIf="isLoading">...Loading...</div>
 
-  <div class="items" style="position: relative;">
-
-    <div [id]="'item'+item.id" *ngFor="let item of courseData">
+  <div class="items" style="position: relative;min-height: 40vh;" *ngIf="!isLoading">
+    <div  [id]="'item'+item.id" *ngFor="let item of courseData">
       <div *ngIf="item.expired" style="position: absolute;top: 0;left: 0;color:red;background-color: #ffe4e6;
                 font-size: 10px;padding:2px 5px 2px 2px;font-weight: bold;">EXPIRED</div>
       <div class="box">

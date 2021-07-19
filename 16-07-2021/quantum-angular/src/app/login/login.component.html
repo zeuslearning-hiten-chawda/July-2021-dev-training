@@ -54,7 +54,7 @@
 
             <form action="">
                 <div class="username">
-                    <input type="text" required
+                    <input type="text" required #username
                     pattern="[a-zA-Z0-9._-]+(@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)?"
                     placeholder="Username/Email ID*">
                 </div>
@@ -89,7 +89,9 @@
                     padding: 10px 90px;
                     border: none;
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                    font-size: 16px;" routerLink="/dashboard">
+                    font-size: 16px;"
+                    (click)="navigateToDashboard(username,password,$event)"
+                    >
                         LOG IN
                     </button>
                 </div>
