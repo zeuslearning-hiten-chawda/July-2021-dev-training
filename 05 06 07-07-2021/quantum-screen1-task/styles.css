@@ -22,6 +22,9 @@
   src: url("static/Quicksand-Regular.ttf") format("truetype");
 }
 
+
+
+
 span#log {
   text-align: center;
   font-size: 22px;
@@ -47,10 +50,7 @@ div.in-container {
 }
 
 .radio {
-  display: inline-flex;
-  align-self: center;
-  cursor: pointer;
-  margin-right: 10px;
+  display: inline-flex;align-items: center;
 }
 .radio__input {
   display: none;
@@ -76,6 +76,29 @@ div.in-container {
 .radio__input:checked + .radio__radio::after {
   transform: scale(1);
 }
+
+#checkbox-input{
+  display: none;
+}
+.checkmark{
+  width: 24px;
+  height: 24px;
+  background: url('./raw/checkbox-unchecked.svg');
+  box-sizing: border-box;
+}
+
+.checkmark::after{
+  width: 24px;
+  height: 24px;
+  content: "";
+  display: block;
+  background: url('./raw/checkbox-checked.svg');
+  opacity: 0;
+}
+#checkbox-input:checked + .checkmark::after{
+  opacity: 1;
+}
+
 /* 
 div.radio-group{
     margin-left: 15px;
@@ -107,11 +130,30 @@ div.input-state {
   margin-left: 15px;
   margin-right: 15px;
 }
+div.input-state > select{
+  appearance: none;
+  width: 100%;
+  border: 0;
+  font-family:'Quicksand_SemiBold';
+  background: url('./raw/arrow-down.svg') no-repeat right;
+  border-bottom: 2px solid #6b6b6b;
+}
+
 div.input-district {
   margin-top: 20px;
   margin-left: 15px;
   margin-right: 15px;
 }
+div.input-district > select{
+  appearance: none;
+  width: 100%;
+  border: 0;
+  font-family:'Quicksand_SemiBold';
+  background: url('./raw/arrow-down.svg') no-repeat right;
+  border-bottom: 2px solid #6b6b6b;
+}
+
+
 div.username {
   margin-right: 30px;
 }

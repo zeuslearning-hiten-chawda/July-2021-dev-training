@@ -26,16 +26,8 @@
                     </label>
                 </div>
 
+       
             <!-- <div class="input-state">
-                <div style="color: #6b6b6b;margin-left: 3px;">state</div>
-                <select name="cars" id="cars">
-                    <option value="volvo">Alabama</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </div> -->
-            <div class="input-state">
                 <div class="floating-label">State*</div>
                 <div style="position: relative;border-bottom: 1px solid #6b6b6b;">
                     <span style="font-family: Quicksand_SemiBold;">Alabama</span>
@@ -50,7 +42,31 @@
                     <img style="position: absolute;right: 0;"
                     src="../../assets/icons/arrow-down.svg" alt="">
                 </div>
-            </div>
+            </div> -->
+
+
+
+            <div class="input-state">
+              <div class="floating-label">State*</div>
+              <select>
+                  <option value="0">Alabama</option>
+                  <option value="1">Audi</option>
+                  <option value="2">BMW</option>
+                  <option value="3">Citroen</option>
+                </select>
+          </div>
+
+
+          <div class="input-district">
+              <div class="floating-label">District*</div>
+              <select>
+                  <option value="0">Alabama School District</option>
+                  <option value="1">Audi</option>
+                  <option value="2">BMW</option>
+                  <option value="3">Citroen</option>
+                </select>
+          </div>
+
 
             <form action="">
                 <div class="username">
@@ -77,11 +93,16 @@
                 <div class="FP">
                     FORGOT PASSWORD?
                 </div>
-                <div style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;
+                <label class="check-container" style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;">
+                  <input type="checkbox" style="margin: 6px 4px 0 0;" id="checkbox-input">
+                  <div class="checkmark"></div>
+                  <span style="font-family: Quicksand_Regular" >Remember me</span>
+                </label>
+                <!-- <div style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;
                 font-family: Quicksand_Regular;">
                     <img src="../../assets/icons/checkbox-checked.svg" alt="">
                     <div>Remember me</div>
-                </div>
+                </div> -->
                 <div style="text-align: center;margin-top: 30px;">
                     <button type="submit"
                     style="font-family: Quicksand_SemiBold;

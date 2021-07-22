@@ -25,7 +25,7 @@
     <header>
         <div style="background-color: #232f3c;padding: 8px 0 5px 20px;
         border-bottom:3px solid #31b9e4;">
-            <img src="/quantum screen assets/quantum screen assets/icons/logo used in header.svg" alt="">
+            <img src="./quantum screen assets/quantum screen assets/icons/logo used in header.svg" alt="">
         </div>
     </header>
     <main>
@@ -33,7 +33,7 @@
         border-top:5px solid #31b9e4;">
 
             <div class="in-container">
-                <img src="/back_icon.png" alt="" id="back_image"
+                <img src="./raw/back_icon.png" alt="" id="back_image"
                 style="width: 24px;height: 24px;">
                 <span   id="log">
                     Log in with Quantum</span>
@@ -52,12 +52,12 @@
                 </label>
             </div> -->
                 <div class="radio-group" style="margin-left: 15px;margin-top: 20px;">
-                    <label  class="radio" style="display: inline-flex;align-items: center;margin-right:30px">
+                    <label  class="radio" style="margin-right:30px">
                         <input type="radio" name="myRadioField" value="District" class="radio__input" >
                         <div class="radio__radio"></div>
                         <span style="font-family: Quicksand_SemiBold;">District</span>
                     </label>
-                    <label  class="radio" style="display: inline-flex;align-items: center;margin-right: 0;">
+                    <label  class="radio" style="margin-right: 0;">
                         <input type="radio" name="myRadioField" value="Independent school" class="radio__input" >
                         <div class="radio__radio"></div>
                         <span style="font-family: Quicksand_SemiBold;">Independent school</span>
@@ -65,27 +65,38 @@
                 </div>
            
             <!-- <div class="input-state">
-                <div style="color: #6b6b6b;margin-left: 3px;">state</div>
-                <select name="cars" id="cars">
-                    <option value="volvo">Alabama</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </div> -->
-            <div class="input-state">
                 <div style="color: #6b6b6b;margin-left: 3px;font-size: 12px;">State*</div>
                 <div style="position: relative;border-bottom: 1px solid #6b6b6b;">
                     <span style="font-family: Quicksand_SemiBold;">Alabama</span> 
-                    <img style="position: absolute;right: 0;" src="/quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
+                    <img style="position: absolute;right: 0;" src="./quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
                 </div>
+            </div> -->
+            
+            <div class="input-state">
+                <div style="color: #6b6b6b;margin-left: 3px;font-size: 12px;">State*</div>
+                <select>
+                    <option value="0">Alabama</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                    <option value="3">Citroen</option>
+                  </select>
             </div>
-            <div class="input-district">
+           
+            <!-- <div class="input-district">
                 <div style="color: #6b6b6b;margin-left: 3px;font-size: 12px;">District*</div>
                 <div style="position: relative;border-bottom: 1px solid #6b6b6b;">
                     <span style="font-family: Quicksand_SemiBold;">Alabama School District</span> 
-                    <img style="position: absolute;right: 0;" src="/quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
+                    <img style="position: absolute;right: 0;" src="./quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
                 </div>
+            </div> -->
+            <div class="input-district">
+                <div style="color: #6b6b6b;margin-left: 3px;font-size: 12px;">District*</div>
+                <select>
+                    <option value="0">Alabama School District</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                    <option value="3">Citroen</option>
+                  </select>
             </div>
             <form action="">
                 <div class="username" style="font-family: Quicksand_Regular;">
@@ -102,8 +113,8 @@
                 <div class="password" style="position: relative;;">
                     <input id="password" pattern="(.)+" required  type="password"  placeholder="Password*">
                     <img  onclick="myFunction()" style="position: absolute;right: 0; 
-                    bottom: 0;padding-right: 12px;padding-bottom: 2px;" 
-                    src="/quantum screen assets//quantum screen assets/icons/preview.svg" alt="">
+                    bottom: 0;margin-right: -20px;padding-bottom: 2px;" 
+                    src="./quantum screen assets//quantum screen assets/icons/preview.svg" alt="">
                 </div>
                 <!-- <div class="password" style="position: relative;">
                     Password*
@@ -112,10 +123,12 @@
                 <div class="FP">
                     FORGOT PASSWORD?
                 </div> 
-                <div style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;">
-                    <img src="/quantum screen assets/quantum screen assets/icons/checkbox-checked.svg" alt=""> 
-                    <div>Remember me</div>
-                </div>
+                <label class="check-container" style="margin-top: 25px;font-weight: bold;display: flex;margin-left: 15px;">
+                    <!-- <img src="./quantum screen assets/quantum screen assets/icons/checkbox-checked.svg" alt="">  -->
+                    <input type="checkbox" style="margin: 6px 4px 0 0;" id="checkbox-input">
+                    <div class="checkmark"></div>
+                    <span >Remember me</span>
+                </label>
                 <div style="text-align: center;margin-top: 30px;">
                     <button type="submit"
                     style="font-family: Quicksand_SemiBold;background-color: #3fd28b;padding: 10px 80px;border: none;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"> 
@@ -135,7 +148,7 @@
             <div style="font-family: Quicksand_SemiBold;padding-left:10px;color: #338562;">Contact Us</div>
         </div>
         <div class="footer-2" style="text-align: center;background-color: #e0e1e1;padding: 10px 0">
-            <img src="/quantum screen assets/quantum screen assets/icons/logo used in footer.svg" alt=""
+            <img src="./quantum screen assets/quantum screen assets/icons/logo used in footer.svg" alt=""
             style="padding-right: 10px;display: inline-block;">
             <div style="border-left: 1px solid #6b6b6b;display: inline-block;
             padding-left: 10px;">

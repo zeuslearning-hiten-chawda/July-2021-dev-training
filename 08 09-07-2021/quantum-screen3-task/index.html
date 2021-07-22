@@ -10,36 +10,36 @@
     <script>
         function contentView(){
             if((document.getElementById("sub").src).includes("dropdown-arrow.jpg")){
-                document.getElementById("sub").src = '/raw/up-arrow.jpg';
+                document.getElementById("sub").src = './raw/up-arrow.jpg';
             document.getElementById("sub-main").style.display = 'block';
 
             }else{
-                document.getElementById("sub").src = '/raw/dropdown-arrow.jpg';
+                document.getElementById("sub").src = './raw/dropdown-arrow.jpg';
             document.getElementById("sub-main").style.display = 'none';
 
             }
             
         }
-        function announcement(){
-            document.getElementsByClassName("an")[0].style.display = 'none';
-            document.getElementsByClassName("animg")[0].src = '/raw/announcements-active.svg';
+        // function announcement(){
+        //     document.getElementsByClassName("an")[0].style.display = 'none';
+        //     document.getElementsByClassName("animg")[0].src = './raw/announcements-active.svg';
             
-        }
-        function announcement2(){
-            document.getElementsByClassName("an")[0].style.display = 'flex';
-            document.getElementsByClassName("animg")[0].src = '/quantum screen assets/quantum screen assets/icons/announcements.svg';
+        // }
+        // function announcement2(){
+        //     document.getElementsByClassName("an")[0].style.display = 'flex';
+        //     document.getElementsByClassName("animg")[0].src = './quantum screen assets/quantum screen assets/icons/announcements.svg';
             
-        }
-        function alert(){
-            document.getElementsByClassName("al")[0].style.display = 'none';
-            document.getElementsByClassName("alimg")[0].src = '/raw/alerts-active.svg';
+        // }
+        // function alert(){
+        //     document.getElementsByClassName("al")[0].style.display = 'none';
+        //     document.getElementsByClassName("alimg")[0].src = './raw/alerts-active.svg';
             
-        }
-        function alert2(){
-            document.getElementsByClassName("al")[0].style.display = 'flex';
-            document.getElementsByClassName("alimg")[0].src = '/quantum screen assets/quantum screen assets/icons/alerts.svg';
+        // }
+        // function alert2(){
+        //     document.getElementsByClassName("al")[0].style.display = 'flex';
+        //     document.getElementsByClassName("alimg")[0].src = './quantum screen assets/quantum screen assets/icons/alerts.svg';
             
-        }
+        // }
     </script>
 </head>
 <body style="margin:0;background-color: #eeeeee;">
@@ -48,7 +48,7 @@
         <ul id="navbar">
             <span >
                 <img style="padding: 8px 8px 8px 20px;" 
-                src="/quantum screen assets/quantum screen assets/icons/logo used in header.svg" alt="">
+                src="./quantum screen assets/quantum screen assets/icons/logo used in header.svg" alt="">
             </span>
             
                 <li class="to_hide_big to_show_small" id="ham" style="margin-right: 5px;">
@@ -61,17 +61,17 @@
                     border-radius: 50%;width: 16px;height: 16px;justify-content: center;align-items: center;
                     font-size: 12px;color: black;">
                         T</span>
-                    <img style="border-radius: 50%;border:2px solid green" src="/raw/hiten-chawda.jpeg" alt="" width="24px" height="24px">
+                    <img style="border-radius: 50%;border:2px solid green" src="./raw/hiten-chawda.jpeg" alt="" width="24px" height="24px">
                 </li>
                 <li id="announcement" style="position: relative;">
                     <span id="in" class="an" >
                         1</span>
-                    <img class="animg" class="an" src="/quantum screen assets/quantum screen assets/icons/announcements.svg" alt="">
+                    <img class="animg" class="an" src="./quantum screen assets/quantum screen assets/icons/announcements.svg" alt="">
                 </li>
                 <li  id="alert" style="position: relative;">
                     <span id="in" class="al">
                         2</span>
-                    <img class="alimg" src="/quantum screen assets/quantum screen assets/icons/alerts.svg" alt="">
+                    <img class="alimg" src="./quantum screen assets/quantum screen assets/icons/alerts.svg" alt="">
                 </li>
                 <li class="to_hide_small"><a href="#about">ADMIN</a></li>
                 <li class="to_hide_small"><a href="#about">REPORTS</a></li>
@@ -84,10 +84,13 @@
                 <li><a href="#news">CONTENT</a></li>
                 <li><a class="active" href="#home">DASHBOARD</a></li> -->
                 <div class="dropdown-content">
-                    <a href="#" id="main">DASHBOARD</a>
+                    <a href="#" id="main">DASHBOARD
+                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="./raw/dropdown-arrow.jpg" alt="">
+
+                    </a>
                     <a href="#" id="main" class="content" onclick="contentView()">
                         CONTENT
-                        <img id="sub" style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="/dropdown-arrow.jpg" alt="">
+                        <img id="sub" style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="./raw/dropdown-arrow.jpg" alt="">
                         <a style="display: none;" href="#" id="sub-main">
                             COURSE CATALOG
                         </a> 
@@ -95,26 +98,26 @@
                     </a>
                     <a id="main" href="#">
                         USERS
-                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="/dropdown-arrow.jpg" alt="">
+                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="./raw/dropdown-arrow.jpg" alt="">
 
                     </a>
                     <a id="main" href="#">
                         REPORTS
-                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="/dropdown-arrow.jpg" alt="">
+                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="./raw/dropdown-arrow.jpg" alt="">
 
                     </a>
                     <a id="main" href="#">
                         ADMIN
-                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="/dropdown-arrow.jpg" alt="">
+                        <img style="position: absolute;right: 15px;width: 18px;margin-top: 8px;" src="./raw/dropdown-arrow.jpg" alt="">
                     </a>
                 </div>
 
-                <div class="dropdown-content-announcement" onmouseover="announcement()" onmouseleave="announcement2()">
+                <div class="dropdown-content-announcement" >
                     <div id="one">
                         <a href="#" id="main" style="font-family: Quicksand_SemiBold;padding-top: 12px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="26px"
-                                src="/quantum screen assets/quantum screen assets/icons/completed.jpg" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/completed.jpg" alt=""></div>
                             
                             <div>No classes will be held on 21st Nov</div>
                             <span 
@@ -128,7 +131,7 @@
                         background-color: #ffffee;padding-top: 10px;">
                            <div><span style="color: #888888;">PA:</span> Wilson Kumar
                             <img style="float: right;" width="22px"
-                            src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
+                            src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
                            
                             <div style="width: 250px;"
                             >Guest lecture on Geometry on 20th September</div>
@@ -140,7 +143,7 @@
                         <a href="#" id="main" style="font-family: Quicksand_SemiBold;padding-top: 12px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="26px"
-                                src="/quantum screen assets/quantum screen assets/icons/completed.jpg" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/completed.jpg" alt=""></div>
                              <div style="width: 250px;"
                              >Additional course materials available on request</div>
                             <span 
@@ -154,7 +157,7 @@
                         background-color: #ffffee;padding-top: 10px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="22px"
-                                src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
                             <div style="width: 250px;"
                             >No classes will be held on 25th Dec</div>
                             <span style="color: #888888;margin: 10px;"> <span style="color: #888888;">  </span>
@@ -166,7 +169,7 @@
                         background-color: #ffffee;padding-top: 10px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="22px"
-                                src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
                              <div style="width: 250px;"
                              >Additional course materials available on request</div>
                              <span 
@@ -180,7 +183,7 @@
                         background-color: #ffffee;padding-top: 10px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="22px"
-                                src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
                             <div style="width: 250px;"
                             >No classes will be held on 25th Dec</div>
                             <span style="color: #888888;margin: 10px;"> <span style="color: #888888;">  </span>
@@ -192,7 +195,7 @@
                         background-color: #ffffee;padding-top: 10px;">
                             <div><span style="color: #888888;">PA:</span> Wilson Kumar
                                 <img style="float: right;" width="22px"
-                                src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
+                                src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt=""></div>
                              <div style="width: 250px;"
                              >Additional course materials available on request</div>
                              <span 
@@ -209,14 +212,14 @@
                         <button style="margin: 6px 0;">CREATE VIEW</button>
                     </div>
                 </div>
-                <div class="dropdown-content-alert" onmouseover="alert()" onmouseleave="alert2()">
+                <div class="dropdown-content-alert">
                     <div id="one">
                         <a href="#" id="main" style="font-family: Quicksand_SemiBold;
                         background-color: #ffffee;padding-top: 10px;">
                            <div style="width: 375px;margin: 0;"
                            >
                            <img style="float: right;" width="22px"
-                            src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
                            License for Introduction to Algebra has been assigned to your school
                             </div>
                             <span style="color: #888888;margin: 10px;"> <span style="color: #888888;">  </span>
@@ -229,7 +232,7 @@
                             <div style="width: 375px;margin-bottom: 5px;"
                            >
                            <img style="float: right;" width="26px"
-                            src="/quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
                             Lesson 3 Practice Worksheet overdue for Amy Santiago 
                             </div>
                             <span 
@@ -244,7 +247,7 @@
                            <div style="width: 375px;margin-bottom: 5px;"
                            >
                            <img style="float: right;" width="22px"
-                            src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
                             23 new students created
                             </div>
                             <span style="color: #888888;margin: 10px;"> <span style="color: #888888;">  </span>
@@ -257,7 +260,7 @@
                             <div style="width: 375px;margin-bottom: 5px;"
                            >
                            <img style="float: right;" width="26px"
-                            src="/quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
                             15 submissions ready for evaluation  
                             </div>
                             <span 
@@ -272,7 +275,7 @@
                            <div style="width: 375px;margin: 0;"
                            >
                            <img style="float: right;" width="22px"
-                            src="/quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/minimize.png" alt="">
                            <span style="width: 255px;display: inline-block;">
                            License for Basic Concepts in Geometry has been assigned to your...
                            </span>
@@ -286,7 +289,7 @@
                             <div style="width: 375px;margin-bottom: 5px;"
                            >
                            <img style="float: right;" width="26px"
-                            src="/quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
+                            src="./quantum screen assets/quantum screen assets/icons/completed.jpg" alt="">
                             Lesson 3 Practice Worksheet overdue for Amy Santiago 
                             </div>
                             <span 
@@ -309,11 +312,11 @@
     <main >
         <div class="first_selection">
             <div id="one">
-                <img src="/quantum screen assets/quantum screen assets/icons/courses.svg" alt="">
+                <img src="./quantum screen assets/quantum screen assets/icons/courses.svg" alt="">
                 <span style="margin: 0 5px ;font-weight: bold;font-size: 28px;">4 </span> Courses
             </div>
             <div id="two">
-                <img src="/quantum screen assets/quantum screen assets/icons/classes.svg" alt="">
+                <img src="./quantum screen assets/quantum screen assets/icons/classes.svg" alt="">
                 <span style="margin: 0 5px ;font-weight: bold;font-size: 28px;">4 </span> Classes
             </div>
         </div>
@@ -325,9 +328,9 @@
             <span style="position: relative;border-bottom: 1px solid 	#888888;padding-bottom: 7px;">
                 <span style="font-family: Quicksand_SemiBold;display: inline-block;width: 200px;font-size: 1.25rem;"
                  >Course Name</span> 
-                <img style="position: absolute;right: 0;" src="/quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
+                <img style="position: absolute;right: 0;" src="./quantum screen assets/quantum screen assets/icons/arrow-down.svg" alt="">
             </span>
-            <img style="margin-left: 20px;" src="/quantum screen assets/quantum screen assets/icons/sort.svg" alt="">
+            <img style="margin-left: 20px;" src="./quantum screen assets/quantum screen assets/icons/sort.svg" alt="">
         </div>
         <hr style="clear: both;color:	#888888;margin: 0 20px;">
         
@@ -347,7 +350,7 @@
             <div style="font-family: Quicksand_SemiBold;padding-left:10px;color: #338562;">Contact Us</div>
         </div>
         <div class="footer-2" style="text-align: center;background-color: #e0e1e1;padding: 10px 0">
-            <img src="/quantum screen assets/quantum screen assets/icons/logo used in footer.svg" alt=""
+            <img src="./quantum screen assets/quantum screen assets/icons/logo used in footer.svg" alt=""
             style="padding-right: 10px;display: inline-block;">
             <div style="border-left: 1px solid #6b6b6b;display: inline-block;
             padding-left: 10px;">
