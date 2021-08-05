@@ -1,0 +1,163 @@
+header {
+  background-color: #1f2834;
+  height: 56px;
+}
+header > img {
+  margin-top: 11px;
+  margin-left: 24px;
+}
+div#header-line {
+  height: 2px;
+  background: #31b9e4 0% 0% no-repeat padding-box;
+}
+div#login-form {
+  width: 488px;
+  height: 421px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  text-align: center;
+}
+div#login-form-line {
+  height: 4px;
+  background-color: #3ac7ec;
+}
+div#login-form-title {
+  text-align: center;
+  margin-top: 20px;
+  color: #222222;
+  font-size: 24px;
+  font-family: "Quicksand_Bold";
+}
+div#login-form-email {
+  margin-top: 32px;
+  padding: 0 32px 0 32px;
+}
+div#login-form-email > input {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#login-form-email > div {
+  margin-top: 5px;
+  text-align: end;
+  color: #1f7a54;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#login-form-password {
+  position: relative;
+  margin-top: 32px;
+  padding: 0 32px 0 32px;
+}
+div#login-form-password > input {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#login-form-password > div {
+  margin-top: 5px;
+  text-align: end;
+  color: #1f7a54;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#login-form-password > img {
+  position: absolute;
+  right: 32px;
+  top: -2px;
+}
+label#login-form-remember {
+  display: flex;
+  margin-top: 26px;
+  padding: 0 32px 0 32px;
+  align-items: center;
+}
+label#login-form-remember > span {
+  margin-left: 5px;
+  font-size: 16px;
+  font-family: "Quicksand_Bold";
+}
+#login-form-remember-checkbox-input {
+  display: none;
+}
+#login-form-remember-checkmark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("/assets/icons/checkbox-unchecked.svg");
+  box-sizing: border-box;
+}
+#login-form-remember-checkmark::after {
+  width: 24px;
+  height: 24px;
+  content: "";
+  display: inline-block;
+  background: url("/assets/icons/checkbox-checked.svg");
+  opacity: 0;
+}
+#login-form-remember-checkbox-input:checked
+  + #login-form-remember-checkmark::after {
+  opacity: 1;
+}
+button#login-form-button {
+  margin-top: 34px;
+  background: #3fd28b 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #0000003d;
+  opacity: 1;
+  width: 216px;
+  height: 40px;
+  border: 0;
+  color: #1f2834;
+  font-size: 14px;
+  font-family: "Quicksand_Bold";
+}
+div#login-form-not-registered {
+  margin-top: 24px;
+  font-size: 12px;
+  font-family: "Quicksand_Bold";
+}
+div#login-form-create-account {
+  margin-top: 4px;
+  font-size: 14px;
+  font-family: "Quicksand_Bold";
+  color: #1f7a54;
+}
+footer {
+  position: absolute;
+  bottom: 40px;
+  text-align: center;
+  width: 100%;
+  color: #1f7a54;
+  font-size: 14px;
+  font-family: "Quicksand_Bold";
+}
+span#footer-mid-line {
+  border: 1px solid #0000001f;
+  margin: 0 8px;
+}
+/* 375px  */
+@media all and (max-width: 376px) {
+  div#login-form {
+    max-width: 343px;
+  }
+  div#login-form-email {
+    padding: 0 16px 0 16px;
+  }
+  div#login-form-password {
+    padding: 0 16px 0 16px;
+  }
+  label#login-form-remember {
+    padding: 0 16px 0 16px;
+  }
+}

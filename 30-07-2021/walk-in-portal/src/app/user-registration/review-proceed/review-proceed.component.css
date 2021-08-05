@@ -1,0 +1,372 @@
+div#personal-information{
+  margin: 24px;
+  background-color: #ffffff;
+  height: 32px;
+  padding: 12px 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.item-mid-line{
+  border-bottom: 2px solid #eeeeee;
+}
+span.item-circle{
+  display: inline-block;
+  background: #3FD28B 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  position: relative;
+}
+span.item-circle-count{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+span.not-active-circle{
+  background: #757575 0% 0% no-repeat padding-box;
+}
+div.item{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  padding: 0 8px;
+}
+div.item > span.item-info{
+  padding-left: 8px;
+  color: #222222;
+  font-size: 16px;
+  font-family: 'Quicksand_Bold';
+  background-color: white;
+}
+div.item-one{
+  left: 16px;
+}
+div.item-two{
+  left: 50%;
+  transform: translateX(-50%);
+}
+div.item-three{
+  right: 16px;
+}
+span#personal-information{
+  width: 50%;
+  margin-right: 0;
+  display: inline-block;
+  padding-left:24px;
+  box-sizing: border-box;
+  color: #222222;
+  font-size: 16px;
+  font-family: 'Quicksand_Bold';
+  padding-bottom:24px;
+}
+span#personal-information-edit{
+  width: 50%;
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-right:24px;
+  font-size: 16px;
+  font-family: 'Quicksand_Bold';
+  color: #1F7A54;
+  padding-bottom:24px;
+}
+span#personal-information-edit > img{
+  margin-right: 9px;
+}
+/* person information css */
+div#personal-information-box{
+  background-color: #ffffff;
+  margin: 0 24px;
+  display: flex;
+  padding: 24px;
+}
+div#personal-information-box > div{
+  flex: 1 1 50%;
+}
+div#field-name{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div#field-name-input-box{
+  margin-top: 12px;
+}
+div#field-name-input-box > span{
+  width: 100%;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#last-name-box{
+ margin-top: 40px;
+}
+div#email-box{
+  margin-top: 40px;
+}
+div#phone-number-box{
+  margin-top: 40px;
+}
+div#phone-number-input-box{
+  margin-top: 12px;
+}
+div#phone-number-input-box > span{
+  font-family: "Quicksand_SemiBold";
+}
+div#phone-number-input-box > span#phone-code{
+  margin: 0 8px;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+  width: 24px;
+}
+div#phone-number-input-box > span#phone-number{
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+  width: 100px;
+}
+label#upload-resume-box{
+  display: block;
+  margin-top: 40px;
+}
+
+label#upload-resume-box > span{
+  color: #000000;
+  font-size: 14px;
+  font-family: "Quicksand_SemiBold";
+}
+div#portfolio-box{
+  margin-top: 40px;
+}
+div#job-roles-box{
+  margin-top: 40px;
+}
+
+label.item-job-role{
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+label.item-job-role > span {
+  font-size: 16px;
+  font-family: "Quicksand_Bold";
+}
+div#referral-box{
+  margin-top: 40px;
+}
+div#subscription-box{
+  margin-top: 40px;
+}
+label.subscription-job-role{
+  display: flex;
+  align-items: center;
+}
+label.subscription-job-role > span{
+  margin-left: 8px;
+  font-size: 14px;
+  font-family: "Quicksand_Bold";
+}
+
+/* person information css end*/
+
+span#qualifications{
+  width: 50%;
+  margin-right: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  color: #222222;
+  font-size: 16px;
+  font-family: 'Quicksand_Bold';
+  padding:24px;
+}
+span#qualifications-edit{
+  width: 50%;
+  margin-right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Quicksand_Bold';
+  color: #1F7A54;
+  padding:24px;
+}
+
+/* qualification css */
+div.accordion-item{
+  margin: 0 24px;
+}
+div.accordion-item-header{
+  height: 56px;
+  box-shadow: 0px 4px 6px #00000029;
+  background-color: #dbefff;
+  position: relative;
+  display: flex;
+  box-shadow: none;
+}
+div.accordion-item-header >span#one{
+  flex:1;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'Quicksand_SemiBold';
+}
+div.accordion-item-body-content{
+  padding: 24px;
+  background-color: #ffffff;
+}
+div#field-name{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div#field-name-input-box{
+  margin-top: 12px;
+}
+div#field-name-input-box > span{
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+div#year-of-passing-box{
+  margin-top: 40px;
+}
+div#box{
+  margin-top: 40px;
+  display: flex;
+}
+div#box > div{
+  flex: 1 1 50%;
+}
+div#first-half{
+  margin-right: 12px;
+}
+div#second-half{
+  margin-left: 12px;
+}
+div#college-box{
+  margin-top: 40px;
+}
+div#other-college-box{
+  margin-top: 40px;
+}
+div#college-location-box{
+  margin-top: 40px;
+}
+
+/* professional qualification */
+div.next-accordion-item{
+  margin-top: 24px;
+}
+div#applicant-type-box{
+  background-color: #ffffff;
+  padding: 24px;
+}
+.professional-content{
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+div#experienced-box{
+  padding: 24px;
+  background-color: white;
+  margin-top: 8px;
+}
+div#current-ctc-box{
+  margin-top: 40px;
+}
+div#expected-ctc-box{
+  margin-top: 40px;
+}
+div[id*="technologies"] > div#technology-input-box > span{
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+  display: block;
+  margin-top: 12px;
+}
+div#expertised-technologies{
+  margin-top: 40px;
+}
+div#other-technologies{
+  margin-top: 16px;
+}
+div#familiar-technologies{
+  margin-top: 40px;
+}
+div#notice-period-box{
+ margin-top: 40px;
+}
+div#notice-period-second-box{
+  display: flex;
+  margin-top: 16px;
+}
+div#notice-period-second-box > div{
+  flex: 1 1 50%;
+}
+div#first-notice-period-half{
+  margin-right: 12px;
+}
+div#second-notice-period-half{
+  margin-left: 12px;
+}
+div#past-appearance-box{
+  margin-top: 40px;
+}
+div#previous-applied-job-role{
+  margin-top: 16px;
+}
+div#zeus-test{
+  display: flex;
+  margin-top: 16px;
+}
+div#zeus-test > div{
+  flex: 1 1 50%;
+}
+div#zeus-test-first-half{
+  margin-right: 12px;
+}
+div#zeus-test-second-half{
+  margin-left: 12px;
+}
+div#experienced-inner-box{
+  display: flex;
+}
+div#experienced-inner-box > div{
+  flex: 1 1 50%;
+}
+div#experienced-inner-box-first-half{
+  margin-right: 12px;
+}
+div#experienced-inner-box-second-half{
+  margin-left: 12px;
+}
+
+div#fresher-box{
+  padding: 24px;
+  background-color: white;
+  margin-top: 8px;
+}
+div#fresher-inner-box{
+  display: flex;
+}
+div#fresher-inner-box > div{
+  flex: 1 1 50%;
+}
+div#fresher-inner-box-first-half{
+  margin-right: 12px;
+}
+div#fresher-inner-box-second-half{
+  margin-left: 12px;
+}
+div#familiar-technologies{
+  margin-top: 40px;
+}
+
+
+/* professional qualification ends */
+
+/* qualification css ends */

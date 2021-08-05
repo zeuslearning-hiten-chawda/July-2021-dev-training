@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Quicksand_Med";
+  src: url("/assets/static/Quicksand-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand_Bold";
+  src: url("/assets/static/Quicksand-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand_Light";
+  src: url("/assets/static/Quicksand-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Quicksand_SemiBold";
+  src: url("/assets/static/Quicksand-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand_Regular";
+  src: url("/assets/static/Quicksand-Regular.ttf") format("truetype");
+}
+
+
+body
+{
+  margin: 0;
+  background-color: #EEEEEE;
+}
+
+
+/* html, body { height: 100%; } */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

@@ -1,0 +1,167 @@
+header {
+  background-color: #1f2834;
+  height: 57px;
+}
+header > img {
+  margin-top: 9px;
+  margin-left: 24px;
+}
+div#header-line {
+  height: 2px;
+  background: #31b9e4 0% 0% no-repeat padding-box;
+}
+header > span {
+  float: right;
+  width: 40px;
+  height: 40px;
+  margin-top: 9px;
+  box-sizing: border-box;
+  margin-right: 16px;
+  display: inline-block;
+  background: #3C4E62 0% 0% no-repeat padding-box;
+  border: 2px solid #3FD28B;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-family: "Quicksand_Bold";
+}
+div#content-box{
+  padding: 35px 24px 17px 24px;
+}
+span.expire{
+  position: absolute;
+  transform: translateY(-50%);
+  display: inline-block;
+  right: 24px;
+  padding: 2px 8px;
+  background: #FFE4E6 0% 0% no-repeat padding-box;
+  border-radius: 2px;
+  opacity: 1;
+  font-size: 12px;
+  font-family: "Quicksand_SemiBold";
+  color: #D10107;
+}
+div.item{
+  padding: 0 16px 16px 16px;
+  background-color: #fff;
+  margin-bottom: 24px;
+  position: relative;
+}
+div.title{
+  padding-top: 16px;
+  color: #1F7A54;
+  font-size: 18px;
+  font-family: "Quicksand_SemiBold";
+}
+div.date-time{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+  margin-top: 16px;
+}
+div.date-location{
+  margin-top: 8px;
+}
+span.date-from-to{
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Quicksand_SemiBold';
+  display: flex;
+  align-items: center;
+}
+span.date-from-to > img{
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+div.separator::after{
+  content: "";
+  border-right: 1px solid black;
+  opacity: 0.12;
+  margin-left: 8px;
+}
+span.location{
+  margin-left: 4px;
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div.rule{
+  margin-top: 16px;
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 0.12;
+  height: 2px;
+}
+div.job-roles{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+  margin-top: 16px;
+}
+div.job-roles-content{
+  margin-top: 8px;
+  display: flex;
+}
+div.job-roles-item {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+div.job-roles-item > img{
+  border: 1px solid #222222;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  padding: 4px;
+}
+div.job-roles-item > span{
+  margin-left: 8px;
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Quicksand_SemiBold';
+}
+span.internship{
+  display: inline-flex;
+  background: #EEDD6B 0% 0% no-repeat padding-box;
+  border-radius: 9px;
+  margin-top: 16px;
+  padding: 0 8px;
+  color: #666666;
+  font-size: 10px;
+  font-family: 'Quicksand_Bold';
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+}
+div.button-box{
+  margin-top: 24px;
+  text-align: center;
+}
+div.button-box > button{
+  background: #3FD28B 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #0000003D;
+  border-radius: 2px;
+  opacity: 1;
+  height: 28px;
+  border: 0;
+  padding: 5px 16px;
+  color: #25313F;
+  font-size: 14px;
+  font-family: 'Quicksand_Bold';
+}
+
+@media all and (max-width: 376px) {
+  div.job-roles-content{
+    flex-wrap: wrap;
+  }
+  div.job-roles-item {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+  span.internship{
+    margin-top: 8px;
+  }
+}

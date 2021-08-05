@@ -1,0 +1,379 @@
+header {
+  background-color: #1f2834;
+  height: 57px;
+}
+header > img {
+  margin-top: 9px;
+  margin-left: 24px;
+}
+div#header-line {
+  height: 2px;
+  background: #31b9e4 0% 0% no-repeat padding-box;
+}
+header > span {
+  float: right;
+  width: 40px;
+  height: 40px;
+  margin-top: 9px;
+  box-sizing: border-box;
+  margin-right: 16px;
+  display: inline-block;
+  background: #3C4E62 0% 0% no-repeat padding-box;
+  border: 2px solid #3FD28B;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-family: "Quicksand_Bold";
+}
+div#walkin-job{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #0000003D;
+  opacity: 1;
+  margin: 26px 24px 0 24px;
+}
+
+div.item{
+  padding: 0 16px 16px 16px;
+  background-color: #fff;
+  position: relative;
+}
+div.title{
+  padding-top: 16px;
+  color: #222222;
+  font-size: 18px;
+  font-family: "Quicksand_SemiBold";
+}
+div.date-time{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+  margin-top: 16px;
+}
+div.date-location{
+  margin-top: 8px;
+}
+span.date-from-to{
+  color: #666666;
+  font-size: 14px;
+  font-family: 'Quicksand_SemiBold';
+  display: flex;
+  align-items: center;
+}
+span.date-from-to > img{
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+div.separator::after{
+  content: "";
+  border-right: 1px solid black;
+  opacity: 0.12;
+  margin-left: 8px;
+}
+
+span.location{
+  margin-left: 4px;
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div.rule{
+  margin-top: 16px;
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 0.12;
+  height: 2px;
+}
+div.job-roles{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+  margin-top: 16px;
+}
+div.job-roles-content{
+  margin-top: 8px;
+  display: flex;
+}
+div.job-roles-item {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+div.job-roles-item > img{
+  border: 1px solid #222222;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  padding: 4px;
+}
+div.job-roles-item > span{
+  margin-left: 8px;
+  color: #1F7A54;;
+  font-size: 14px;
+  font-family: 'Quicksand_SemiBold';
+}
+div.button-box{
+  margin-top: 24px;
+  text-align: center;
+}
+span#apply-button-box{
+  float: right;
+}
+span#apply-button-box > button{
+  background: #3FD28B 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #0000003D;
+  border-radius: 2px;
+  opacity: 1;
+  height: 28px;
+  border: 0;
+  padding: 5px 16px;
+  color: #25313F;
+  font-size: 14px;
+  font-family: 'Quicksand_Bold';
+}
+/* accordion-job */
+div.accordion-item{
+}
+div.accordion-item-header{
+  background-color: #dbefff;
+  position: relative;
+  display: flex;
+}
+
+div.accordion-item-header >span#one{
+  flex:1;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'Quicksand_SemiBold';
+  padding: 10px 0;
+  padding-left: 16px;
+}
+div.accordion-item-header >span#two{
+  border-left:2px solid #c5c5c5 ;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+div.accordion-item-header >span#two::after{
+  content: url('/assets/icons/expand_more_black_24dp.svg');
+}
+div.accordion-item-header.active >span#two::after{
+  content: url('/assets/icons/expand_less_black_24dp.svg');
+}
+div.accordion-item-body{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+div.accordion-item-header.active + div.accordion-item-body{
+  max-height: 2000px;
+}
+div.accordion-item-body-content{
+  padding: 0 16px;
+  background-color: #ffffff;
+}
+div.field-title{
+  padding: 16px 0;
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div.field-content{
+  padding-bottom: 16px;
+  font-size: 14px;
+  color: #222222;
+  font-family: 'Quicksand_SemiBold';
+}
+div.instruction-rule{
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 0.12;
+  height: 2px;
+}
+/* accordion-job-ends */
+div#time-preference{
+  margin: 24px;
+  padding: 16px;
+  position: relative;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #0000003D;
+}
+div#time-preference-title{
+  font-size: 16px;
+  font-family: 'Quicksand_SemiBold';
+  color: #222222;
+  margin-bottom: 24px;
+}
+div#field-name{
+  color: #666666;
+  font-size: 12px;
+  font-family: 'Quicksand_SemiBold';
+}
+div#time-slot-radio-box{
+  margin-top: 18px;
+}
+.radio {
+  display: flex;
+  align-self: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.radio-input {
+  display: none;
+}
+.radio-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1F7A54;;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.radio-radio::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #1F7A54;;
+  border-radius: 50%;
+  transform: scale(0);
+}
+.radio-input:checked + .radio-radio::after {
+  transform: scale(1);
+}
+.radio-text{
+  font-family: 'Quicksand_SemiBold';
+  font-size: 16px;
+}
+
+div#job-roles-box{
+  margin: 16px 0;
+}
+
+label.item-job-role > input{
+  display: none;
+}
+
+label.item-job-role{
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+}
+label.item-job-role > span {
+  margin-left: 5px;
+  font-size: 16px;
+  font-family: "Quicksand_SemiBold";
+}
+.item-job-role-checkbox-input {
+  display: none;
+}
+.item-job-role-checkmark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("/assets/icons/checkbox-unchecked.svg");
+  box-sizing: border-box;
+}
+.item-job-role-checkmark::after {
+  width: 24px;
+  height: 24px;
+  content: "";
+  display: inline-block;
+  background: url("/assets/icons/checkbox-checked.svg");
+  opacity: 0;
+}
+.item-job-role-checkbox-input:checked
+  + .item-job-role-checkmark::after {
+  opacity: 1;
+}
+label#upload-resume-box{
+  display: block;
+  margin-top: 16px;
+}
+label#upload-resume-box > span{
+  display: flex;
+  align-items: center;
+}
+label#upload-resume-box img{
+  margin-right: 8px;
+}
+label#upload-resume-box > input{
+  display: none;
+}
+label#upload-resume-box > span{
+  color: #1F7A54;
+  font-size: 14px;
+  font-family: "Quicksand_SemiBold";
+}
+button#floating-button{
+  width: 36px;
+  height: 36px;
+  display: block;
+  background: #3FD28B 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #00000029;
+  opacity: 1;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  border: 0;
+}
+div.instruction-designer-box{
+  margin: 16px 24px 24px 24px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #0000003D;
+  opacity: 1;
+}
+div.role-header{
+  height: 56px;
+}
+div.software-engineer-box{
+  margin: 16px 24px 24px 24px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #0000003D;
+  opacity: 1;
+}
+div.software-quality-engineer-box{
+  margin: 16px 24px 40px 24px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 6px #0000003D;
+  opacity: 1;
+}
+button#apply-button-small-screen{
+  background: #3FD28B 0% 0% no-repeat padding-box;
+  opacity: 1;
+  height: 36px;
+  width: 100%;
+  border: 0;
+  padding: 9px 0;
+  color: #25313F;
+  font-size: 14px;
+  font-family: 'Quicksand_Bold';
+  position: fixed;
+  bottom: 0;
+  display: none;
+}
+@media all and (max-width: 376px) {
+  div.title{
+    font-size: 22px;
+  }
+  div.job-roles-content{
+    flex-wrap: wrap;
+  }
+  div.job-roles-item {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+  span#apply-button-box{
+    display: none;
+  }
+  button#apply-button-small-screen{
+    display: block;
+  }
+  div.software-quality-engineer-box{
+    margin-bottom: 76px;
+  }
+}

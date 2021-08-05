@@ -1,0 +1,46 @@
+<header>
+  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo">
+</header>
+<div id="header-line"></div>
+<div id="create-box">
+  <img  src="/assets/icons/back_icon.svg" alt="">
+  <div  id="cancel-create-buttons">
+    <button id="cancel">CANCEL</button>
+    <button id="create">CREATE</button>
+  </div>
+  <div id="create-an-account">Create An Account</div>
+</div>
+<!-- <button (click)="First()">First</button>
+<button (click)="Second()">Second</button>
+<button (click)="Third()">Third</button> -->
+<!-- <mat-stepper linear>
+  <mat-step label="Personal Information" >
+  </mat-step>
+  <mat-step label="Qualifications">
+  </mat-step>
+  <mat-step label="Review and Proceed">
+  </mat-step>
+</mat-stepper> -->
+
+
+<ng-container *ngComponentOutlet="_componentToShow"></ng-container>
+
+<div id="button-section" *ngIf="_PersonalInformationComponentBoolean">
+  <button id="personal-information-next" class="component-button" (click)="qualifications()">
+    NEXT
+  </button>
+</div>
+<div id="button-section" *ngIf="_QualificationsComponentBoolean">
+  <button id="qualifications-previous" class="component-button"  (click)="personalInformation()">
+    PREVIOUS
+  </button>
+  <button id="qualifications-next" class="component-button"   (click)="reviewProceed()">
+    NEXT
+  </button>
+</div>
+<div id="button-section" *ngIf="_ReviewProceedComponentBoolean">
+  <button id="review-proceed-previous" class="component-button"  (click)="qualifications()">
+    PREVIOUS
+  </button>
+
+</div>

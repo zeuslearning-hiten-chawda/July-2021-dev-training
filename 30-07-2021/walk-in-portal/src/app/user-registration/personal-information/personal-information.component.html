@@ -1,0 +1,122 @@
+<div id="personal-information">
+  <div class="item-mid-line"></div>
+  <div  class="item-one item" >
+    <span class="item-circle">
+      <span class="item-circle-count">1</span>
+    </span>
+    <span class="item-info">
+      Personal Information
+    </span>
+  </div>
+  <div class="item-two item" >
+    <span class="item-circle not-active-circle">
+      <span class="item-circle-count">2</span>
+    </span>
+    <span class="item-info" >
+      Qualifications
+    </span>
+  </div>
+  <div class="item-three item">
+    <span class="item-circle not-active-circle">
+      <span class="item-circle-count">3</span>
+    </span>
+    <span class="item-info">
+      Review and Proceed
+    </span>
+  </div>
+</div>
+
+<div id="personal-information-form">
+
+    <div id="first-half">
+      <div id="first-name-box">
+        <div id="field-name">First Name*</div>
+        <div id="field-name-input-box">
+          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.firstName">
+        </div>
+      </div>
+      <div id="last-name-box">
+        <div id="field-name">Last Name*</div>
+        <div id="field-name-input-box">
+          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.lastName">
+        </div>
+      </div>
+      <div id="email-box">
+        <div id="field-name">Email*</div>
+        <div id="field-name-input-box">
+          <input type="email" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.email">
+        </div>
+      </div>
+      <div id="phone-number-box">
+        <div id="field-name">Phone Number*</div>
+        <div id="phone-number-input-box">
+          <span>+</span>
+          <input id="phone-code" type="number" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.phoneCode">
+          <input id="phone-number" type="number" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.phoneNumber">
+        </div>
+      </div>
+      <label id="upload-resume-box">
+        <input type="file" [(ngModel)]="formService.personalInformationVariable.resume">
+        <span>
+          <img src="/assets/icons/upload_resume_icon.png" width="14px" height="16px" alt="">
+          <span>UPLOAD RESUME</span>
+        </span>
+      </label>
+      <div id="portfolio-box">
+        <div id="field-name">Enter Portfolio URL (if any)</div>
+        <div id="field-name-input-box">
+          <input type="text" required  placeholder=""  [(ngModel)]="formService.personalInformationVariable.portfolioURL">
+        </div>
+      </div>
+      <div id="job-roles-box">
+        <div id="field-name">Preferred Job Roles*</div>
+        <label class="item-job-role" (click)="updateJobRoleArray()">
+          <input type="checkbox" class="item-job-role-checkbox-input">
+          <div class="item-job-role-checkmark"></div>
+          <span>Instructional Designer</span>
+        </label>
+        <label class="item-job-role" (click)="updateJobRoleArray()">
+          <input type="checkbox" class="item-job-role-checkbox-input">
+          <div class="item-job-role-checkmark"></div>
+          <span>Software Engineer</span>
+        </label>
+        <label class="item-job-role" (click)="updateJobRoleArray()">
+          <input type="checkbox" class="item-job-role-checkbox-input">
+          <div class="item-job-role-checkmark"></div>
+          <span>Software Quality Engineer</span>
+        </label>
+      </div>
+      <div id="referral-box">
+        <div id="field-name">
+          If You Are Registering Via A Referral, Please Mention Full Name Of The Employee Who Referred You
+        </div>
+        <div id="field-name-input-box">
+          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.referral">
+        </div>
+      </div>
+      <div id="subscription-box">
+        <label class="item-subscription" (click)="updateSubscription()">
+          <input type="checkbox" class="item-subscription-checkbox-input">
+          <div class="item-subscription-checkmark"></div>
+          <span>Send me job related updates via mail</span>
+        </label>
+      </div>
+    </div>
+
+    <div id="second-half" >
+      <img src="assets/icons/upload_display_picture.png" alt="" width="134px" height="134px">
+      <label id="upload-display-picture">
+        <input type="file" [(ngModel)]="formService.personalInformationVariable.displayPicture">
+        <span>
+          UPLOAD DISPLAY PICTURE
+        </span>
+      </label>
+      <div id="upload-display-picture-limit">Max: image size: 5 MB</div>
+    </div>
+</div>
+<!-- <div id="button-section">
+  <button id="personal-information-next" (click)="personalInformationNext()">
+    Next
+  </button>
+</div> -->
+
