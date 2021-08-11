@@ -1,3 +1,24 @@
+::ng-deep .mat-step-label {
+    font-family: "Quicksand_Bold";
+    font-size: 16px;
+}
+::ng-deep  .mat-step-icon {
+  height: 32px !important;
+  width: 32px !important;
+}
+::ng-deep mat-stepper{
+  height: 56px;
+  padding: 0 12px 16px 12px;
+  background-color: transparent !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container{
+  margin: 24px 24px 0 24px !important;
+  background-color: #fff !important;
+}
+::ng-deep .mat-horizontal-content-container {
+  padding: 0 !important;
+  padding-top: 24px !important;
+}
 header {
   background-color: #1f2834;
   height: 56px;
@@ -6,69 +27,68 @@ header > img {
   margin-top: 9px;
   margin-left: 24px;
 }
-div#header-line{
+div#header-line {
   height: 2px;
-  background: #31B9E4 0% 0% no-repeat padding-box;
+  background: #31b9e4 0% 0% no-repeat padding-box;
 }
-div#create-box{
+div#create-box {
   height: 48px;
-  background: #3C4E62 0% 0% no-repeat padding-box;
+  background: #3c4e62 0% 0% no-repeat padding-box;
   padding: 0 24px;
   position: relative;
 }
-div#create-box > img{
+div#create-box > img {
   width: 16px;
   height: 24px;
   margin-top: 12px;
   position: absolute;
   left: 24px;
 }
-div#create-box > div#create-an-account{
+div#create-box > div#create-an-account {
   font-size: 18px;
   font-family: "Quicksand_Med";
   color: #ffffff;
   padding-top: 14px;
   text-align: center;
 }
-div#cancel-create-buttons{
+div#cancel-create-buttons {
   margin-top: 10px;
   position: absolute;
   right: 24px;
 }
-div#cancel-create-buttons > button{
+div#cancel-create-buttons > button {
   font-family: "Quicksand_SemiBold";
   height: 28px;
   width: 90px;
-  background: #3FD28B 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 5px #0000003D;
+  background: #3fd28b 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #0000003d;
   border-radius: 2px;
   opacity: 1;
   border: 0;
 }
-div#cancel-create-buttons > button#cancel{
+div#cancel-create-buttons > button#cancel {
   margin-right: 16px;
 }
-div#cancel-create-buttons > button#create{
-  opacity: 0.4;
-  box-shadow: none;
-}
 
-div#button-section{
+div#button-section {
   text-align: center;
   margin: 32px 0;
 }
 
-button.component-button{
-  color: #1F2834;
+button.component-button {
+  color: #1f2834;
   font-size: 16px;
-  background: #3FD28B 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 5px #0000003D;
+  background: #3fd28b 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #0000003d;
   border-radius: 2px;
   opacity: 1;
   border: 0;
   padding: 5px 27px;
   font-family: "Quicksand_SemiBold";
 }
-button#qualifications-previous{
+button#qualifications-previous {
   margin-right: 16px;
+}
+button.disabled{
+  opacity: 0.4 !important;
 }

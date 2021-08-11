@@ -1,33 +1,4 @@
-header {
-  background-color: #1f2834;
-  height: 57px;
-}
-header > img {
-  margin-top: 9px;
-  margin-left: 24px;
-}
-div#header-line {
-  height: 2px;
-  background: #31b9e4 0% 0% no-repeat padding-box;
-}
-header > span {
-  float: right;
-  width: 40px;
-  height: 40px;
-  margin-top: 9px;
-  box-sizing: border-box;
-  margin-right: 16px;
-  display: inline-block;
-  background: #3C4E62 0% 0% no-repeat padding-box;
-  border: 2px solid #3FD28B;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-family: "Quicksand_Bold";
-}
+
 div#content-box{
   padding: 35px 24px 17px 24px;
 }

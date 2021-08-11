@@ -4,10 +4,10 @@ export interface IPersonalInformation {
   email:string;
   phoneCode:string;
   phoneNumber:string;
-  resume:string;
+  resume:any;
   portfolioURL:string;
-  jobRoles:boolean[];
+  jobRoles:any[];
   referral:string;
   subscription:boolean;
-  displayPicture:string;
+  displayPicture:any;
 }

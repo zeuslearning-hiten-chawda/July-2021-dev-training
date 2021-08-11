@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormServiceService } from 'src/app/services/form-service.service';
 
 @Component({
   selector: 'app-listing-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public formService:FormServiceService) { }
 
   ngOnInit(): void {
   }

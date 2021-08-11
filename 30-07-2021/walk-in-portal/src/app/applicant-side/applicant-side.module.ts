@@ -4,12 +4,14 @@ import { ApplicantSideModuleRoutingModule } from './applicant-side-routing.modul
 import { ListingPageComponent } from './listing-page/listing-page.component';
 import { WalkInDetailsPageComponent } from './walk-in-details-page/walk-in-details-page.component';
 import { WalkInApplicationSuccessPageComponent } from './walk-in-application-success-page/walk-in-application-success-page.component';
+import { ApplicantSideHeaderComponent } from './applicant-side-header/applicant-side-header.component';
 
 @NgModule({
   declarations: [
     ListingPageComponent,
     WalkInDetailsPageComponent,
-    WalkInApplicationSuccessPageComponent
+    WalkInApplicationSuccessPageComponent,
+    ApplicantSideHeaderComponent
   ],
   imports: [
     CommonModule,

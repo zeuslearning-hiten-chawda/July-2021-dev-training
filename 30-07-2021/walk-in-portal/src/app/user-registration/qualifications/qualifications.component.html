@@ -1,3 +1,16 @@
+<!-- <header>
+  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo">
+</header>
+<div id="header-line"></div>
+<div id="create-box">
+  <img  src="/assets/icons/back_icon.svg" alt="">
+  <div  id="cancel-create-buttons">
+    <button id="cancel">CANCEL</button>
+    <button id="create">CREATE</button>
+  </div>
+  <div id="create-an-account">Create An Account</div>
+</div>
+
 <div id="personal-information">
   <div class="item-mid-line"></div>
   <div  class="item-one item" >
@@ -24,31 +37,32 @@
       Review and Proceed
     </span>
   </div>
-</div>
+</div> -->
 
-
-<div class="accordion-item">
-  <div class="accordion-item-header active">
-    <span id="one">Educational Qualifications</span>
-    <span id="two"></span>
-  </div>
-  <div class="accordion-item-body">
-    <div class="accordion-item-body-content">
-
+<form [formGroup]="qualificationForm">
+  <div class="accordion-item" formGroupName="educationalQualification">
+    <div class="accordion-item-header active">
+      <span id="one">Educational Qualifications</span>
+      <span id="two"></span>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
         <div id="aggregate-percentage-box">
           <div id="field-name">Aggregate Percentage*</div>
           <div id="field-name-input-box">
-            <input type="number" required  placeholder="">
+            <input type="number" placeholder="" formControlName="percentage" />
           </div>
         </div>
         <div id="year-of-passing-box">
           <div id="field-name">Year Of Passing*</div>
           <div id="year-of-passing-select-box">
-            <select>
-              <option value="0">2020</option>
-              <option value="1">2019</option>
-              <option value="2">2018</option>
-              <option value="3">2017</option>
+            <select formControlName="yearOfPassing">
+              <option
+                *ngFor="let i of formService.yearOfPassingFetched"
+                [ngValue]="i"
+              >
+                {{ i }}
+              </option>
             </select>
           </div>
         </div>
@@ -58,22 +72,31 @@
             <div id="qualification-box">
               <div id="field-name">Qualifications*</div>
               <div id="field-name-select-box">
-                <select>
-                  <option value="0">Bachelor in Technology (B.Tech)</option>
-                  <option value="1">Bachelor in Technology (B.Tech)</option>
-                  <option value="2">Bachelor in Technology (B.Tech)</option>
-                  <option value="3">Bachelor in Technology (B.Tech)</option>
+                <select formControlName="qualification">
+                  <option
+                    *ngFor="let i of formService.qualificationFetched"
+                    [ngValue]="i"
+                  >
+                    {{ i }}
+                  </option>
                 </select>
               </div>
             </div>
             <div id="college-box">
               <div id="field-name">College*</div>
               <div id="field-name-select-box">
-                <select>
-                  <option value="0">Pune Institute of Technology (PIT)</option>
-                  <option value="1">Pune Institute of Technology (PIT)</option>
+                <select formControlName="college">
+                  <option
+                    *ngFor="let i of formService.collegeFetched"
+                    [ngValue]="i"
+                  >
+                    {{ i }}
+                  </option>
+
+                  <!-- <option value="0">Pune Institute of Technology (PIT)</option>
+                  <option value="1">Pune Institute of Technology (PIT)Pune Institute of Technology (PIT)</option>
                   <option value="2">Pune Institute of Technology (PIT)</option>
-                  <option value="3">Pune Institute of Technology (PIT)</option>
+                  <option value="3">Pune Institute of Technology (PIT)</option> -->
                 </select>
               </div>
             </div>
@@ -82,18 +105,26 @@
             <div id="qualification-box">
               <div id="field-name">Stream*</div>
               <div id="field-name-select-box">
-                <select>
-                  <option value="0">Information Technology</option>
-                  <option value="1">Information Technology</option>
-                  <option value="2">Information Technology</option>
-                  <option value="3">Information Technology</option>
+                <select formControlName="stream">
+                  <option
+                    *ngFor="let i of formService.streamFetched"
+                    [ngValue]="i"
+                  >
+                    {{ i }}
+                  </option>
                 </select>
               </div>
             </div>
             <div id="other-college-box">
-              <div id="field-name">If Others, Please Enter Your College Name</div>
+              <div id="field-name">
+                If Others, Please Enter Your College Name
+              </div>
               <div id="other-college-input-box">
-                <input  type="text" required  placeholder="">
+                <input
+                  type="text"
+                  placeholder=""
+                  formControlName="otherCollege"
+                />
               </div>
             </div>
           </div>
@@ -102,279 +133,504 @@
         <div id="college-location-box">
           <div id="field-name">Where Is Your College Located?*</div>
           <div id="field-name-input-box">
-            <input type="text" required  placeholder="">
+            <input
+              type="text"
+              placeholder=""
+              formControlName="collegeLocation"
+            />
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="accordion-item next-accordion-item">
-  <div class="accordion-item-header active">
-    <span id="one">Professional Qualifications</span>
-    <span id="two"></span>
-  </div>
-  <div class="accordion-item-body">
-    <div class="accordion-item-body-content professional-content">
-
-      <div id="applicant-type-box">
-        <div id="field-name">Applicant Type*</div>
-        <div id="applicant-type-radio-box">
-            <label  class="radio" id="fresher-radio">
-                <input type="radio" name="myRadioField" value="Fresher" class="radio-input" >
-                <div class="radio-radio"></div>
-                <span class="radio-text">Fresher</span>
+  <div
+    class="accordion-item next-accordion-item"
+    formGroupName="professionalQualification"
+  >
+    <div class="accordion-item-header active">
+      <span id="one">Professional Qualifications</span>
+      <span id="two"></span>
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content professional-content">
+        <div id="applicant-type-box">
+          <div id="field-name">Applicant Type*</div>
+          <div id="applicant-type-radio-box">
+            <label
+              class="radio"
+              *ngFor="let type of this.formService.applicantTypeArray"
+            >
+              <input
+                type="radio"
+                name="applicantType"
+                [value]="type"
+                class="radio-input"
+                formControlName="applicantType"
+              />
+              <div class="radio-radio"></div>
+              <span class="radio-text">{{ type }}</span>
             </label>
-            <label  class="radio" id="experienced-radio">
-                <input type="radio" name="myRadioField" value="Experienced" class="radio-input" >
-                <div class="radio-radio"></div>
-                <span class="radio-text">Experienced</span>
+            <!-- <label class="radio" id="fresher-radio">
+              <input
+                type="radio"
+                name="applicantType"
+                value="Fresher"
+                class="radio-input"
+                formControlName="applicantType"
+              />
+              <div class="radio-radio"></div>
+              <span class="radio-text">Fresher</span>
             </label>
+            <label class="radio" id="experienced-radio">
+              <input
+                type="radio"
+                name="applicantType"
+                value="Experienced"
+                class="radio-input"
+                formControlName="applicantType"
+              />
+              <div class="radio-radio"></div>
+              <span class="radio-text">Experienced</span>
+            </label> -->
+          </div>
         </div>
-      </div>
 
-
-      <div>
-
-      </div>
-      <div id="fresher-box" *ngIf="isFresher">
-
-        <div id="fresher-inner-box">
-          <div id="fresher-inner-box-first-half">
-
-            <div id="fresher-familiar-technologies">
-              <div id="field-name">Select All The Technologies You Are Familiar In*</div>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Javascript</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Angular JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>React</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Node JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Others</span>
-              </label>
-              <div id="other-technologies">
-                <div id="field-name">If Others, Please Mention</div>
-                <div id="other-technologies-input-box">
-                  <input type="text" required  placeholder="">
+        <div
+          id="fresher-box"
+          [ngStyle]="{
+            display: applicantType === 'Fresher' ? 'block' : 'none'
+          }"
+          formGroupName="fresher"
+        >
+          <div id="fresher-inner-box">
+            <div id="fresher-inner-box-first-half">
+              <div id="fresher-familiar-technologies">
+                <div id="field-name">
+                  Select All The Technologies You Are Familiar In*
+                </div>
+                <label
+                  class="item-job-role"
+                  *ngFor="let data of formService.technologyFetched"
+                >
+                  <input
+                    type="checkbox"
+                    class="item-job-role-checkbox-input"
+                    [value]="data"
+                    (change)="onCheckboxChange($event, 'fresher.familiarTech')"
+                  />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>{{ data }}</span>
+                </label>
+                <!-- <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Javascript</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Angular JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>React</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Node JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Others</span>
+                </label> -->
+                <div id="other-technologies">
+                  <div id="field-name">If Others, Please Mention</div>
+                  <div id="other-technologies-input-box">
+                    <input
+                      type="text"
+                      placeholder=""
+                      formControlName="otherFamiliartech"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="past-appearance-box">
+                <div id="field-name">
+                  Have You Appeared For Any Test By Zeus In The Past 12 Months?*
+                </div>
+                <div id="past-appearance-radio-box">
+                  <label
+                    class="radio"
+                    *ngFor="let yesno of this.formService.yesNoArray"
+                  >
+                    <input
+                      type="radio"
+                      [value]="yesno"
+                      class="radio-input"
+                      formControlName="zeusTestBool"
+                    />
+                    <div class="radio-radio"></div>
+                    <span class="radio-text">{{ yesno ? "Yes" : "No" }}</span>
+                  </label>
+                  <!-- <label class="radio">
+                    <input
+                      type="radio"
+                      name="zeusTestBool"
+                      [value]="true"
+                      class="radio-input"
+                      formControlName="zeusTestBool"
+                    />
+                    <div class="radio-radio pre-checked"></div>
+                    <span class="radio-text">Yes</span>
+                  </label>
+                  <label class="radio">
+                    <input
+                      type="radio"
+                      name="zeusTestBool"
+                      [value]="false"
+                      class="radio-input"
+                      formControlName="zeusTestBool"
+                    />
+                    <div class="radio-radio"></div>
+                    <span class="radio-text">No</span>
+                  </label> -->
+                </div>
+              </div>
+              <div id="previous-applied-job-role">
+                <div id="field-name">If Yes, Which Role Did You Apply For?</div>
+                <div id="previous-applied-job-role-input-box">
+                  <input
+                    type="text"
+                    placeholder=""
+                    formControlName="previouslyAppliedRole"
+                  />
                 </div>
               </div>
             </div>
-            <div id="past-appearance-box">
-              <div id="field-name">Have You Appeared For Any Test By Zeus In The Past 12 Months?**</div>
-              <div id="past-appearance-radio-box">
-                  <label  class="radio" >
-                      <input type="radio" name="myRadioField" value="Yes" class="radio-input" >
-                      <div class="radio-radio pre-checked"></div>
-                      <span class="radio-text">Yes</span>
-                  </label>
-                  <label  class="radio">
-                      <input type="radio" name="myRadioField" value="No" class="radio-input" >
-                      <div class="radio-radio"></div>
-                      <span class="radio-text">No</span>
-                  </label>
-              </div>
-            </div>
-            <div id="previous-applied-job-role">
-              <div id="field-name">If Yes, Which Role Did You Apply For?</div>
-              <div id="previous-applied-job-role-input-box">
-                <input  type="text" required  placeholder="">
-              </div>
-            </div>
-
-          </div>
-          <div id="fresher-inner-box-second-half">
+            <div id="fresher-inner-box-second-half"></div>
           </div>
         </div>
 
-
-
-      </div>
-
-      <div id="experienced-box" *ngIf="!isFresher">
-
-        <div id="experienced-inner-box">
-          <div id="experienced-inner-box-first-half">
-
-            <div id="year-of-experince-box">
-              <div id="field-name">Year Of Experince*</div>
-              <div id="field-name-input-box">
-                <input type="number" required  placeholder="">
+        <div
+          id="experienced-box"
+          [ngStyle]="{
+            display: applicantType === 'Experienced' ? 'block' : 'none'
+          }"
+          formGroupName="experienced"
+        >
+          <div id="experienced-inner-box">
+            <div id="experienced-inner-box-first-half">
+              <div id="year-of-experince-box">
+                <div id="field-name">Year Of Experince*</div>
+                <div id="field-name-input-box">
+                  <input
+                    type="number"
+                    placeholder=""
+                    formControlName="yearOfExperience"
+                  />
+                </div>
               </div>
-            </div>
-            <div id="current-ctc-box">
-              <div id="field-name">Current CTC* (In Rupees)</div>
-              <div id="field-name-input-box">
-                <input type="text" required  placeholder="">
+              <div id="current-ctc-box">
+                <div id="field-name">Current CTC* (In Rupees)</div>
+                <div id="field-name-input-box">
+                  <input
+                    type="number"
+                    placeholder=""
+                    formControlName="currentCTC"
+                  />
+                </div>
               </div>
-            </div>
-            <div id="expected-ctc-box">
-              <div id="field-name">Expected CTC* (In Rupees)</div>
-              <div id="field-name-input-box">
-                <input type="text" required  placeholder="">
+              <div id="expected-ctc-box">
+                <div id="field-name">Expected CTC* (In Rupees)</div>
+                <div id="field-name-input-box">
+                  <input
+                    type="number"
+                    placeholder=""
+                    formControlName="expectedCTC"
+                  />
+                </div>
               </div>
-            </div>
-            <div id="expertised-technologies">
-              <div id="field-name">Select All The Technologies You Expertise In*</div>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Javascript</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Angular JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>React</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Node JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Others</span>
-              </label>
-              <div id="other-technologies">
-                <div id="field-name">If Others, Please Mention</div>
-                <div id="other-technologies-input-box">
-                  <input type="text" required  placeholder="">
+              <div id="expertised-technologies">
+                <div id="field-name">
+                  Select All The Technologies You Expertise In*
+                </div>
+                <label
+                  class="item-job-role"
+                  *ngFor="let data of formService.technologyFetched"
+                >
+                  <input
+                    type="checkbox"
+                    class="item-job-role-checkbox-input"
+                    [value]="data"
+                    (change)="
+                      onCheckboxChange($event, 'experienced.expertisedTech')
+                    "
+                  />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>{{ data }}</span>
+                </label>
+
+                <!-- <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Javascript</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Angular JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>React</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Node JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Others</span>
+                </label> -->
+                <div id="other-technologies">
+                  <div id="field-name">If Others, Please Mention</div>
+                  <div id="other-technologies-input-box">
+                    <input
+                      type="text"
+                      placeholder=""
+                      formControlName="otherExpertisedTech"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="familiar-technologies">
+                <div id="field-name">
+                  Select All The Technologies You Are Familiar In*
+                </div>
+                <label
+                  class="item-job-role"
+                  *ngFor="let data of formService.technologyFetched"
+                >
+                  <input
+                    type="checkbox"
+                    class="item-job-role-checkbox-input"
+                    [value]="data"
+                    (change)="
+                      onCheckboxChange($event, 'experienced.familiarTech')
+                    "
+                  />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>{{ data }}</span>
+                </label>
+
+                <!-- <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Javascript</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Angular JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>React</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Node JS</span>
+                </label>
+                <label class="item-job-role">
+                  <input type="checkbox" class="item-job-role-checkbox-input" />
+                  <div class="item-job-role-checkmark"></div>
+                  <span>Others</span>
+                </label> -->
+                <div id="other-technologies">
+                  <div id="field-name">If Others, Please Mention</div>
+                  <div id="other-technologies-input-box">
+                    <input
+                      type="text"
+                      placeholder=""
+                      formControlName="otherFamiliartech"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="notice-period-box">
+                <div id="field-name">Are You Currently On Notice Period?*</div>
+                <div id="notice-period-radio-box">
+                  <label
+                    class="radio"
+                    *ngFor="let yesno of this.formService.yesNoArray"
+                  >
+                    <input
+                      type="radio"
+                      name="onNoticePeriod"
+                      [value]="yesno"
+                      class="radio-input"
+                      formControlName="onNoticePeriod"
+                    />
+                    <div class="radio-radio pre-checked"></div>
+                    <span class="radio-text">{{ yesno ? "Yes" : "No" }}</span>
+                  </label>
                 </div>
               </div>
             </div>
-            <div id="familiar-technologies">
-              <div id="field-name">Select All The Technologies You Are Familiar In*</div>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Javascript</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Angular JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>React</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Node JS</span>
-              </label>
-              <label class="item-job-role">
-                <input type="checkbox" class="item-job-role-checkbox-input">
-                <div class="item-job-role-checkmark"></div>
-                <span>Others</span>
-              </label>
-              <div id="other-technologies">
-                <div id="field-name">If Others, Please Mention</div>
-                <div id="other-technologies-input-box">
-                  <input type="text" required  placeholder="">
+            <div id="experienced-inner-box-second-half"></div>
+          </div>
+
+          <div id="notice-period-second-box">
+            <div id="first-notice-period-half">
+              <div id="notice-period-duration-box">
+                <div id="field-name">
+                  If Yes, When Will Your Notice Period End?*
+                </div>
+                <div id="notice-period-duration-date-box">
+                  <input type="date" formControlName="noticePeriodEndDate" />
                 </div>
               </div>
             </div>
-            <div id="notice-period-box">
-              <div id="field-name">Are You Currently On Notice Period?*</div>
-              <div id="notice-period-radio-box">
-                  <label  class="radio" id="on-notice-period-yes-radio">
-                      <input type="radio" name="myRadioField" value="Yes" class="radio-input" >
-                      <div class="radio-radio pre-checked"></div>
-                      <span class="radio-text">Yes</span>
-                  </label>
-                  <label  class="radio">
-                      <input type="radio" name="myRadioField" value="No" class="radio-input" >
-                      <div class="radio-radio"></div>
-                      <span class="radio-text">No</span>
-                  </label>
+            <div id="second-notice-period-half">
+              <div id="notice-period-end-box">
+                <div id="field-name">
+                  How Long Is Your Notice Period?* (Mention In Months)*
+                </div>
+                <div id="field-name-select-box" class="notice-select">
+                  <select formControlName="noticePeriodDuration">
+                    <option
+                      *ngFor="let i of formService.noticePeriodDurationFetched"
+                      [ngValue]="i"
+                    >
+                      {{ i }}
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
-
           </div>
-          <div id="experienced-inner-box-second-half">
+
+          <div id="zeus-test">
+            <div id="zeus-test-first-half">
+              <div id="past-appearance-box">
+                <div id="field-name">
+                  Have You Appeared For Any Test By Zeus In The Past 12
+                  Months?**
+                </div>
+                <div id="past-appearance-radio-box">
+                  <label
+                    class="radio"
+                    *ngFor="let yesno of this.formService.yesNoArray"
+                  >
+                    <input
+                      type="radio"
+                      name="zeusTestBool"
+                      [value]="yesno"
+                      class="radio-input"
+                      formControlName="zeusTestBool"
+                    />
+                    <div class="radio-radio"></div>
+                    <span class="radio-text">{{ yesno ? "Yes" : "No" }}</span>
+                  </label>
+                </div>
+              </div>
+              <div id="previous-applied-job-role">
+                <div id="field-name">If Yes, Which Role Did You Apply For?</div>
+                <div id="previous-applied-job-role-input-box">
+                  <input
+                    type="text"
+                    placeholder=""
+                    formControlName="previouslyAppliedRole"
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="zeus-test-second-half"></div>
           </div>
         </div>
-
-
-        <div id="notice-period-second-box">
-          <div id="first-notice-period-half">
-            <div id="notice-period-duration-box">
-              <div id="field-name">How Long Is Your Notice Period?* (Mention In Months)*</div>
-              <div id="notice-period-duration-date-box">
-                <input type="date" >
-              </div>
-            </div>
-          </div>
-          <div id="second-notice-period-half">
-            <div id="notice-period-end-box">
-              <div id="field-name">How Long Is Your Notice Period?* (Mention In Months)*</div>
-              <div id="field-name-select-box" class="notice-select">
-                <select>
-                  <option value="0">2 months</option>
-                  <option value="1">3 months</option>
-                  <option value="2">4 months</option>
-                  <option value="3">5 months</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="zeus-test">
-          <div id="zeus-test-first-half">
-            <div id="past-appearance-box">
-              <div id="field-name">Have You Appeared For Any Test By Zeus In The Past 12 Months?**</div>
-              <div id="past-appearance-radio-box">
-                  <label  class="radio" >
-                      <input type="radio" name="myRadioField" value="Yes" class="radio-input" >
-                      <div class="radio-radio pre-checked"></div>
-                      <span class="radio-text">Yes</span>
-                  </label>
-                  <label  class="radio">
-                      <input type="radio" name="myRadioField" value="No" class="radio-input" >
-                      <div class="radio-radio"></div>
-                      <span class="radio-text">No</span>
-                  </label>
-              </div>
-            </div>
-            <div id="previous-applied-job-role">
-              <div id="field-name">If Yes, Which Role Did You Apply For?</div>
-              <div id="previous-applied-job-role-input-box">
-                <input  type="text" required  placeholder="">
-              </div>
-            </div>
-          </div>
-          <div id="zeus-test-second-half"></div>
-        </div>
-
-
-
       </div>
-
     </div>
   </div>
-</div>
+
+  <div id="button-section">
+    <button
+      id="qualifications-previous"
+      class="component-button"
+      (click)="routeToPersonalInformation()"
+    >
+      PREVIOUS
+    </button>
+    <button
+      id="qualifications-next"
+      class="component-button"
+      (click)="routeToReviewProceded()"
+      [ngClass]="{
+        disabled: !(
+          qualificationForm.get('educationalQualification')?.valid &&
+          (qualificationForm.get('professionalQualification.applicantType')
+            ?.value === 'Fresher'
+            ? qualificationForm.get(
+                'professionalQualification.fresher.familiarTech'
+              )?.value.length > 0
+            : +qualificationForm.get(
+                'professionalQualification.experienced.yearOfExperience'
+              )?.value > 0 &&
+              !!qualificationForm.get(
+                'professionalQualification.experienced.currentCTC'
+              )?.value &&
+              !!qualificationForm.get(
+                'professionalQualification.experienced.expectedCTC'
+              )?.value &&
+              qualificationForm.get(
+                'professionalQualification.experienced.expertisedTech'
+              )?.value.length > 0 &&
+              qualificationForm.get(
+                'professionalQualification.experienced.familiarTech'
+              )?.value.length > 0 &&
+              qualificationForm.get(
+                'professionalQualification.experienced.noticePeriodEndDate'
+              )?.value !== '')
+        )
+      }"
+      [disabled]="
+        !(
+          qualificationForm.get('educationalQualification')?.valid &&
+          (qualificationForm.get('professionalQualification.applicantType')
+            ?.value === 'Fresher'
+            ? qualificationForm.get(
+                'professionalQualification.fresher.familiarTech'
+              )?.value.length > 0
+            : +qualificationForm.get(
+                'professionalQualification.experienced.yearOfExperience'
+              )?.value > 0 &&
+              !!qualificationForm.get(
+                'professionalQualification.experienced.currentCTC'
+              )?.value &&
+              !!qualificationForm.get(
+                'professionalQualification.experienced.expectedCTC'
+              )?.value &&
+              qualificationForm.get(
+                'professionalQualification.experienced.expertisedTech'
+              )?.value.length > 0 &&
+              qualificationForm.get(
+                'professionalQualification.experienced.familiarTech'
+              )?.value.length > 0 &&
+              qualificationForm.get(
+                'professionalQualification.experienced.noticePeriodEndDate'
+              )?.value !== '')
+        )
+      "
+    >
+      NEXT
+    </button>
+  </div>
+</form>

@@ -12,7 +12,7 @@ div#header-line {
 }
 div#login-form {
   width: 488px;
-  height: 421px;
+  height: 440px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -133,6 +133,9 @@ div#login-form-create-account {
   font-family: "Quicksand_Bold";
   color: #1f7a54;
 }
+div#login-form-create-account:hover , div#login-form-not-registered:hover{
+  cursor: pointer;
+}
 footer {
   position: absolute;
   bottom: 40px;
@@ -145,6 +148,29 @@ footer {
 span#footer-mid-line {
   border: 1px solid #0000001f;
   margin: 0 8px;
+}
+.error{
+  color:red;
+  font-size: 14px;
+  font-family: "Quicksand_Bold";
+}
+.email-error{
+  text-align: start;
+  margin: 0 32px;
+}
+.password-error{
+  text-align: start;
+  margin: 0 32px;
+}
+input.ng-touched.ng-invalid{
+  border-bottom: 1px solid red !important;
+}
+button.disabled{
+  opacity: 0.4 !important;
+}
+
+button:hover{
+  cursor: pointer;
 }
 /* 375px  */
 @media all and (max-width: 376px) {

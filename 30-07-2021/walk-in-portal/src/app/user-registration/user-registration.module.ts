@@ -5,7 +5,7 @@ import { UserRegistrationHeaderComponent } from './user-registration-header/user
 import { UserRegistrationRoutingModule } from './user-registration-routing.module';
 import { QualificationsComponent } from './qualifications/qualifications.component';
 import { ReviewProceedComponent } from './review-proceed/review-proceed.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     CommonModule,
     UserRegistrationRoutingModule,
     FormsModule,
-    MatStepperModule
+    MatStepperModule,
+    ReactiveFormsModule
   ]
 })
 export class UserRegistrationModule { }

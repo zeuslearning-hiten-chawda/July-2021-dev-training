@@ -1,123 +1,38 @@
-<header>
-  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo">
-  <span>
-    <span>H</span>
-  </span>
-</header>
-<div id="header-line"></div>
-
+<app-applicant-side-header></app-applicant-side-header>
 <div id="content-box">
-  <div class="item item-one">
-    <span class="expire">Expires in 10 days</span>
-    <div class="title">Walk In For Designer Job Role</div>
+
+  <div class="item" *ngFor="let walkin of formService.walkInVariable">
+    <span class="expire">{{walkin.expiryDate}}</span>
+    <div class="title">{{walkin.title}}</div>
     <div class="date-time">Date & Time</div>
     <div class="date-location">
       <span class="date-from-to">
-        10-jul-2021 to 11-jul-2021
+        {{walkin.startDate}} to {{walkin.endDate}}
         <div class="separator"></div>
         <img src="/assets/icons/location_on_black_24dp.svg" alt="">
-        <span class="location">Mumbai</span>
+        <span class="location">{{walkin.city}}</span>
       </span>
     </div>
     <div class="rule"></div>
     <div class="job-roles">Job Roles:</div>
     <div class="job-roles-content">
-      <div class="job-roles-item item-one">
-        <img src="/assets/icons/Instructional Designer.svg" alt="" >
-        <span>Instructional Designer</span>
+      <div class="job-roles-item" *ngFor="let job of walkin.jobRoles">
+        <img [src]="'/assets/icons/'+job.url" alt="" >
+        <span>{{job.title}}</span>
         <div class="separator"></div>
       </div>
-      <div class="job-roles-item item-two">
-        <img src="/assets/icons/Software Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-      <div class="job-roles-item item-three">
-        <img src="/assets/icons/Software Quality Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
+
     </div>
-    <span class="internship">
-      Internship Oppotunity for MCA Students
+    <span class="internship" *ngIf="!!walkin.internshipInformation">
+      {{walkin.internshipInformation}}
     </span>
     <div class="button-box">
       <button>VIEW MORE DETAILS</button>
     </div>
   </div>
 
-  <div class="item item-two">
-    <span class="expire">Expires in 5 days</span>
-    <div class="title">Walk In For Designer Job Role</div>
-    <div class="date-time">Date & Time</div>
-    <div class="date-location">
-      <span class="date-from-to">
-        10-jul-2021 to 11-jul-2021
-        <div class="separator"></div>
-        <img src="/assets/icons/location_on_black_24dp.svg" alt="">
-        <span class="location">Mumbai</span>
-      </span>
-    </div>
-    <div class="rule"></div>
-    <div class="job-roles">Job Roles:</div>
-    <div class="job-roles-content">
-      <div class="job-roles-item item-one">
-        <img src="/assets/icons/Instructional Designer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-      <div class="job-roles-item item-two">
-        <img src="/assets/icons/Software Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-      <div class="job-roles-item item-three">
-        <img src="/assets/icons/Software Quality Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-    </div>
-    <div class="button-box">
-      <button>VIEW MORE DETAILS</button>
-    </div>
-  </div>
 
 
-  <div class="item item-three">
-    <div class="title">Walk In For Designer Job Role</div>
-    <div class="date-time">Date & Time</div>
-    <div class="date-location">
-      <span class="date-from-to">
-        10-jul-2021 to 11-jul-2021
-        <div class="separator"></div>
-        <img src="/assets/icons/location_on_black_24dp.svg" alt="">
-        <span class="location">Mumbai</span>
-      </span>
-    </div>
-    <div class="rule"></div>
-    <div class="job-roles">Job Roles:</div>
-    <div class="job-roles-content">
-      <div class="job-roles-item item-one">
-        <img src="/assets/icons/Instructional Designer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-      <div class="job-roles-item item-two">
-        <img src="/assets/icons/Software Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-      <div class="job-roles-item item-three">
-        <img src="/assets/icons/Software Quality Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
-      </div>
-    </div>
-    <span class="internship">
-      Internship Oppotunity for MCA Students
-    </span>
-    <div class="button-box">
-      <button>VIEW MORE DETAILS</button>
-    </div>
-  </div>
+
+
 </div>

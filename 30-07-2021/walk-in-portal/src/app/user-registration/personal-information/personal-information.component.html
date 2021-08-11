@@ -1,3 +1,16 @@
+<!-- <header>
+  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo">
+</header>
+<div id="header-line"></div>
+<div id="create-box">
+  <img  src="/assets/icons/back_icon.svg" alt="">
+  <div  id="cancel-create-buttons">
+    <button id="cancel">CANCEL</button>
+    <button id="create">CREATE</button>
+  </div>
+  <div id="create-an-account">Create An Account</div>
+</div>
+
 <div id="personal-information">
   <div class="item-mid-line"></div>
   <div  class="item-one item" >
@@ -24,99 +37,183 @@
       Review and Proceed
     </span>
   </div>
-</div>
-
-<div id="personal-information-form">
-
+</div> -->
+<form
+  [formGroup]="personalInformationForm"
+  (ngSubmit)="routeToQualifications()"
+>
+  <div id="personal-information-form">
     <div id="first-half">
       <div id="first-name-box">
         <div id="field-name">First Name*</div>
         <div id="field-name-input-box">
-          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.firstName">
+          <input type="text" placeholder="" formControlName="firstName" />
         </div>
       </div>
       <div id="last-name-box">
         <div id="field-name">Last Name*</div>
         <div id="field-name-input-box">
-          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.lastName">
+          <input type="text" placeholder="" formControlName="lastName" />
         </div>
       </div>
       <div id="email-box">
         <div id="field-name">Email*</div>
         <div id="field-name-input-box">
-          <input type="email" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.email">
+          <input type="email" placeholder="" formControlName="email" />
         </div>
       </div>
       <div id="phone-number-box">
         <div id="field-name">Phone Number*</div>
         <div id="phone-number-input-box">
           <span>+</span>
-          <input id="phone-code" type="number" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.phoneCode">
-          <input id="phone-number" type="number" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.phoneNumber">
+          <input
+            id="phone-code"
+            type="number"
+            formControlName="phoneCode"
+            placeholder=""
+          />
+          <input
+            id="phone-number"
+            type="number"
+            formControlName="phoneNumber"
+            placeholder=""
+          />
         </div>
       </div>
       <label id="upload-resume-box">
-        <input type="file" [(ngModel)]="formService.personalInformationVariable.resume">
+        <input type="file" (change)="handleResumeFileInput($event)" />
         <span>
-          <img src="/assets/icons/upload_resume_icon.png" width="14px" height="16px" alt="">
-          <span>UPLOAD RESUME</span>
+          <img
+            src="/assets/icons/upload_resume_icon.png"
+            width="14px"
+            height="16px"
+            alt=""
+          />
+          <span class="resume-title">UPLOAD RESUME</span>{{ resume }}
         </span>
       </label>
       <div id="portfolio-box">
         <div id="field-name">Enter Portfolio URL (if any)</div>
         <div id="field-name-input-box">
-          <input type="text" required  placeholder=""  [(ngModel)]="formService.personalInformationVariable.portfolioURL">
+          <input type="text" placeholder="" formControlName="portfolioURL" />
         </div>
       </div>
       <div id="job-roles-box">
         <div id="field-name">Preferred Job Roles*</div>
-        <label class="item-job-role" (click)="updateJobRoleArray()">
-          <input type="checkbox" class="item-job-role-checkbox-input">
+        <!-- <div *ngFor="let data of Data; let i=index">
+          <label>
+            <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+            {{data.name}}
+          </label>
+        </div> -->
+        <label class="item-job-role" *ngFor="let data of jobRolesArray">
+          <input
+            type="checkbox"
+            class="item-job-role-checkbox-input job-role-pi-input"
+            [value]="data"
+            (change)="onCheckboxChange($event)"
+          />
+          <div class="item-job-role-checkmark"></div>
+          <span>{{ data }}</span>
+        </label>
+        <!-- <label class="item-job-role" (click)="updateJobRoleArray()">
+          <input
+            type="checkbox"
+            class="item-job-role-checkbox-input job-role-pi-input"
+          />
           <div class="item-job-role-checkmark"></div>
           <span>Instructional Designer</span>
         </label>
         <label class="item-job-role" (click)="updateJobRoleArray()">
-          <input type="checkbox" class="item-job-role-checkbox-input">
+          <input
+            type="checkbox"
+            class="item-job-role-checkbox-input job-role-pi-input"
+          />
           <div class="item-job-role-checkmark"></div>
           <span>Software Engineer</span>
         </label>
         <label class="item-job-role" (click)="updateJobRoleArray()">
-          <input type="checkbox" class="item-job-role-checkbox-input">
+          <input
+            type="checkbox"
+            class="item-job-role-checkbox-input job-role-pi-input"
+          />
           <div class="item-job-role-checkmark"></div>
           <span>Software Quality Engineer</span>
-        </label>
+        </label> -->
       </div>
       <div id="referral-box">
         <div id="field-name">
-          If You Are Registering Via A Referral, Please Mention Full Name Of The Employee Who Referred You
+          If You Are Registering Via A Referral, Please Mention Full Name Of The
+          Employee Who Referred You
         </div>
         <div id="field-name-input-box">
-          <input type="text" required  placeholder="" [(ngModel)]="formService.personalInformationVariable.referral">
+          <input type="text" placeholder="" formControlName="referral" />
         </div>
       </div>
-      <div id="subscription-box">
+      <!-- <div id="subscription-box">
         <label class="item-subscription" (click)="updateSubscription()">
-          <input type="checkbox" class="item-subscription-checkbox-input">
+          <input type="checkbox" class="item-subscription-checkbox-input" />
+          <div class="item-subscription-checkmark"></div>
+          <span>Send me job related updates via mail</span>
+        </label>
+      </div> -->
+      <div id="subscription-box">
+        <label class="item-subscription">
+          <input
+            type="checkbox"
+            class="item-subscription-checkbox-input"
+            formControlName="subscription"
+          />
           <div class="item-subscription-checkmark"></div>
           <span>Send me job related updates via mail</span>
         </label>
       </div>
     </div>
 
-    <div id="second-half" >
-      <img src="assets/icons/upload_display_picture.png" alt="" width="134px" height="134px">
+    <div id="second-half">
+      <img
+        [src]="
+          displayPictureURL
+            ? displayPictureURL
+            : 'assets/icons/upload_display_picture.png'
+        "
+        alt=""
+        width="134px"
+        height="134px"
+      />
       <label id="upload-display-picture">
-        <input type="file" [(ngModel)]="formService.personalInformationVariable.displayPicture">
-        <span>
-          UPLOAD DISPLAY PICTURE
-        </span>
+        <input type="file" (change)="handleImageFileInput($event)" />
+        <span> UPLOAD DISPLAY PICTURE </span>
       </label>
       <div id="upload-display-picture-limit">Max: image size: 5 MB</div>
     </div>
-</div>
-<!-- <div id="button-section">
-  <button id="personal-information-next" (click)="personalInformationNext()">
-    Next
-  </button>
-</div> -->
-
+  </div>
+  <div id="button-section">
+    <button
+      id="personal-information-next"
+      class="component-button"
+      type="submit"
+      [ngClass]="{ disabled: !personalInformationForm.valid ||
+        !personalInformationForm.get('resume')?.value ||
+        !personalInformationForm.get('displayPicture')?.value ||
+        !personalInformationForm.get('jobRoles')?.value.length }"
+      [disabled]="
+        !personalInformationForm.valid ||
+        !personalInformationForm.get('resume')?.value ||
+        !personalInformationForm.get('displayPicture')?.value ||
+        !personalInformationForm.get('jobRoles')?.value.length
+      "
+    >
+    <!-- <button
+    id="personal-information-next"
+    class="component-button"
+    type="submit"
+    [ngClass]="{ disabled: !personalInformationForm.valid ||
+      !personalInformationForm.get('resume')?.value ||
+      !personalInformationForm.get('displayPicture')?.value ||
+      !personalInformationForm.get('jobRoles')?.value.length }"
+    > -->
+      NEXT
+    </button>
+  </div>
+</form>

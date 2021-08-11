@@ -1,36 +1,124 @@
 <header>
-  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo">
+  <img src="/assets/icons/Zeus-LMS-logo.svg" alt="logo" />
 </header>
 <div id="header-line"></div>
 <div id="create-box">
-  <img  src="/assets/icons/back_icon.svg" alt="">
-  <div  id="cancel-create-buttons">
+  <img src="/assets/icons/back_icon.svg" alt="" routerLink="/login"/>
+  <div id="cancel-create-buttons">
     <button id="cancel">CANCEL</button>
-    <button id="create">CREATE</button>
+    <button
+      id="create"
+      [ngClass]="{
+        disabled:
+          !personalInformationChild?.personalInformationForm.valid ||
+          !personalInformationChild?.personalInformationForm.get('resume')
+            ?.value ||
+          !personalInformationChild?.personalInformationForm.get(
+            'displayPicture'
+          )?.value ||
+          !personalInformationChild?.personalInformationForm.get('jobRoles')
+            ?.value.length ||
+          !(
+            qualificationChild?.qualificationForm.get(
+              'educationalQualification'
+            )?.valid &&
+            (qualificationChild?.qualificationForm.get(
+              'professionalQualification.applicantType'
+            )?.value === 'Fresher'
+              ? qualificationChild?.qualificationForm.get(
+                  'professionalQualification.fresher.familiarTech'
+                )?.value.length > 0
+              : +qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.yearOfExperience'
+                )?.value > 0 &&
+                !!qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.currentCTC'
+                )?.value &&
+                !!qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.expectedCTC'
+                )?.value &&
+                qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.expertisedTech'
+                )?.value.length > 0 &&
+                qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.familiarTech'
+                )?.value.length > 0 &&
+                qualificationChild?.qualificationForm.get(
+                  'professionalQualification.experienced.noticePeriodEndDate'
+                )?.value !== '')
+          )
+      }"
+      [disabled]="
+        !personalInformationChild?.personalInformationForm.valid ||
+        !personalInformationChild?.personalInformationForm.get('resume')
+          ?.value ||
+        !personalInformationChild?.personalInformationForm.get('displayPicture')
+          ?.value ||
+        !personalInformationChild?.personalInformationForm.get('jobRoles')
+          ?.value.length ||
+        !(
+          qualificationChild?.qualificationForm.get('educationalQualification')
+            ?.valid &&
+          (qualificationChild?.qualificationForm.get(
+            'professionalQualification.applicantType'
+          )?.value === 'Fresher'
+            ? qualificationChild?.qualificationForm.get(
+                'professionalQualification.fresher.familiarTech'
+              )?.value.length > 0
+            : +qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.yearOfExperience'
+              )?.value > 0 &&
+              !!qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.currentCTC'
+              )?.value &&
+              !!qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.expectedCTC'
+              )?.value &&
+              qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.expertisedTech'
+              )?.value.length > 0 &&
+              qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.familiarTech'
+              )?.value.length > 0 &&
+              qualificationChild?.qualificationForm.get(
+                'professionalQualification.experienced.noticePeriodEndDate'
+              )?.value !== '')
+        )
+      "
+    >
+      CREATE
+    </button>
   </div>
   <div id="create-an-account">Create An Account</div>
 </div>
 <!-- <button (click)="First()">First</button>
 <button (click)="Second()">Second</button>
 <button (click)="Third()">Third</button> -->
-<!-- <mat-stepper linear>
-  <mat-step label="Personal Information" >
+<mat-stepper linear #stepper>
+  <mat-step
+    label="Personal Information"
+    [completed]="isPersonalInformationCompleted"
+  >
+    <app-personal-information
+      (localEventEmitter)="temp($event)"
+    ></app-personal-information>
   </mat-step>
-  <mat-step label="Qualifications">
+  <mat-step label="Qualifications" [completed]="isQualificationsCompleted">
+    <app-qualifications (localEventEmitter)="temp($event)"></app-qualifications>
   </mat-step>
-  <mat-step label="Review and Proceed">
+  <mat-step label="Review and Proceed" [completed]="isReviewProceedCompleted">
+    <app-review-proceed (localEventEmitter)="temp($event)"></app-review-proceed>
   </mat-step>
-</mat-stepper> -->
+</mat-stepper>
 
+<!-- <ng-container *ngComponentOutlet="_componentToShow"></ng-container> -->
 
-<ng-container *ngComponentOutlet="_componentToShow"></ng-container>
-
-<div id="button-section" *ngIf="_PersonalInformationComponentBoolean">
+<!-- <div id="button-section" *ngIf="_PersonalInformationComponentBoolean">
   <button id="personal-information-next" class="component-button" (click)="qualifications()">
     NEXT
   </button>
-</div>
-<div id="button-section" *ngIf="_QualificationsComponentBoolean">
+</div> -->
+<!-- <div id="button-section" *ngIf="_QualificationsComponentBoolean">
   <button id="qualifications-previous" class="component-button"  (click)="personalInformation()">
     PREVIOUS
   </button>
@@ -42,5 +130,4 @@
   <button id="review-proceed-previous" class="component-button"  (click)="qualifications()">
     PREVIOUS
   </button>
-
-</div>
+</div> -->
