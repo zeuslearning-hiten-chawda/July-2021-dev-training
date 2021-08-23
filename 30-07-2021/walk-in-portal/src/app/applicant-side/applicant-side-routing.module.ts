@@ -5,9 +5,9 @@ import { WalkInApplicationSuccessPageComponent } from './walk-in-application-suc
 import { WalkInDetailsPageComponent } from './walk-in-details-page/walk-in-details-page.component';
 
 const routes: Routes = [
-  { path: 'walkin', component: ListingPageComponent },
-  { path: 'walkin/success', component: WalkInApplicationSuccessPageComponent },
-  { path: 'walkin/:walkinID', component: WalkInDetailsPageComponent },
+  { path: '', component: ListingPageComponent },
+  { path: 'success', component: WalkInApplicationSuccessPageComponent },
+  { path: ':walkinID', component: WalkInDetailsPageComponent },
 ];
 
 @NgModule({

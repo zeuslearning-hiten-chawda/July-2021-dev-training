@@ -1,3 +1,4 @@
 /09-07-2021 git session
 /16-07-2021/quantum-angular/node_modules
 /30-07-2021/walk-in-portal/node_modules
+/11-08-2021/quantum-server/node_modules

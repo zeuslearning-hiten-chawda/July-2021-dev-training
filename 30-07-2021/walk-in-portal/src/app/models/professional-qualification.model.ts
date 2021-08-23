@@ -7,16 +7,16 @@ export interface IProfessionalQualification {
     previouslyAppliedRole:string;
   },
   experienced:{
-    yearOfExperience:string;
-    currentCTC:string;
-    expectedCTC:string;
+    yearOfExperience:number | undefined;
+    currentCTC:number | undefined;
+    expectedCTC:number | undefined;
     expertisedTech:any[];
     otherExpertisedTech:string;
     familiarTech:any[];
     otherFamiliartech:string;
     onNoticePeriod:boolean;
     noticePeriodEndDate:string;
-    noticePeriodDuration:string;
+    noticePeriodDuration:number | undefined;
     zeusTestBool:boolean;
     previouslyAppliedRole:string;
   }

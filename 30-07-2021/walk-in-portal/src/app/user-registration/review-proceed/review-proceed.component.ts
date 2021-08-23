@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormServiceService } from 'src/app/services/form-service.service';
 
@@ -7,8 +7,9 @@ import { FormServiceService } from 'src/app/services/form-service.service';
   templateUrl: './review-proceed.component.html',
   styleUrls: ['./review-proceed.component.css']
 })
-export class ReviewProceedComponent implements OnInit {
+export class ReviewProceedComponent implements OnInit,AfterViewInit {
   // isFresher:any;
+  
   @Output() localEventEmitter = new EventEmitter;
 
   constructor(public formService:FormServiceService,private router:Router) { }
@@ -17,7 +18,11 @@ export class ReviewProceedComponent implements OnInit {
     // this.isFresher = this.formService.isFresher;
     // console.log(this.formService.qualificationVariable);
     // console.log()
-   
+
+  }
+
+  ngAfterViewInit(){
+    console.log("review initialized")
   }
 
   routeToQualifications(){

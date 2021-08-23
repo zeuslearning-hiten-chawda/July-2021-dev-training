@@ -8,6 +8,7 @@ import { LoginModule } from './login/login.module';
 import { ServicesModule } from './services/services.module';
 import { UserRegistrationModule } from './user-registration/user-registration.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserRegistrationModule,
     ApplicantSideModule,
     ServicesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

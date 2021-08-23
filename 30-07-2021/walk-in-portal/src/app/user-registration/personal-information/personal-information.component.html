@@ -98,7 +98,7 @@
           <input type="text" placeholder="" formControlName="portfolioURL" />
         </div>
       </div>
-      <div id="job-roles-box">
+      <div id="job-roles-box" *ngIf="!isLoading">
         <div id="field-name">Preferred Job Roles*</div>
         <!-- <div *ngFor="let data of Data; let i=index">
           <label>
@@ -106,15 +106,18 @@
             {{data.name}}
           </label>
         </div> -->
-        <label class="item-job-role" *ngFor="let data of jobRolesArray">
+        <label
+          class="item-job-role"
+          *ngFor="let jobRole of formService.jobRolesFetched"
+        >
           <input
             type="checkbox"
             class="item-job-role-checkbox-input job-role-pi-input"
-            [value]="data"
+            [value]="jobRole.id"
             (change)="onCheckboxChange($event)"
           />
           <div class="item-job-role-checkmark"></div>
-          <span>{{ data }}</span>
+          <span>{{ jobRole.title }}</span>
         </label>
         <!-- <label class="item-job-role" (click)="updateJobRoleArray()">
           <input
@@ -193,10 +196,13 @@
       id="personal-information-next"
       class="component-button"
       type="submit"
-      [ngClass]="{ disabled: !personalInformationForm.valid ||
-        !personalInformationForm.get('resume')?.value ||
-        !personalInformationForm.get('displayPicture')?.value ||
-        !personalInformationForm.get('jobRoles')?.value.length }"
+      [ngClass]="{
+        disabled:
+          !personalInformationForm.valid ||
+          !personalInformationForm.get('resume')?.value ||
+          !personalInformationForm.get('displayPicture')?.value ||
+          !personalInformationForm.get('jobRoles')?.value.length
+      }"
       [disabled]="
         !personalInformationForm.valid ||
         !personalInformationForm.get('resume')?.value ||
@@ -204,7 +210,7 @@
         !personalInformationForm.get('jobRoles')?.value.length
       "
     >
-    <!-- <button
+      <!-- <button
     id="personal-information-next"
     class="component-button"
     type="submit"

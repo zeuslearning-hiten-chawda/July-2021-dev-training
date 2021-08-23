@@ -6,7 +6,7 @@ import { ReviewProceedComponent } from './review-proceed/review-proceed.componen
 import { UserRegistrationHeaderComponent } from './user-registration-header/user-registration-header.component';
 
 const routes: Routes = [
-  { path: 'register', component: UserRegistrationHeaderComponent },
+  { path: '', component: UserRegistrationHeaderComponent },
   // { path: 'register/personalInformation', component: PersonalInformationComponent },
   // { path: 'register/qualifications', component: QualificationsComponent },
   // { path: 'register/review', component: ReviewProceedComponent },

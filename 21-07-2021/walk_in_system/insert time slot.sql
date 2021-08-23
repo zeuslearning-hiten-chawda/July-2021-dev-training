@@ -1,0 +1,1 @@
+INSERT INTO walk_in_system.time_slots(start_time,end_time) VALUES(TIME(convert_tz(MAKETIME(13,00,00),'+05:30','+00:00')),TIME(convert_tz(MAKETIME(15,00,00),'+05:30','+00:00')));

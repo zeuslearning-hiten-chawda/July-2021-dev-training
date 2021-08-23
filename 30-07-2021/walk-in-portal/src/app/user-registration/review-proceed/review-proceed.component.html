@@ -103,7 +103,7 @@
       <div id="field-name">Preferred Job Roles</div>
       <label
         class="item-job-role"
-        *ngFor="let item of formService.personalInformationVariable.jobRoles"
+        *ngFor="let item of formService.reviewPreferredJobRoles"
       >
         <span>{{ item }}</span>
       </label>
@@ -188,8 +188,7 @@
             <div id="field-name">Qualifications</div>
             <div id="field-name-input-box">
               <span>{{
-                formService.qualificationVariable.educationalQualification
-                  .qualification
+                formService.reviewQualification
               }}</span>
             </div>
           </div>
@@ -197,8 +196,7 @@
             <div id="field-name">College</div>
             <div id="field-name-input-box">
               <span>{{
-                formService.qualificationVariable.educationalQualification
-                  .college
+                formService.reviewCollege
               }}</span>
             </div>
           </div>
@@ -208,8 +206,7 @@
             <div id="field-name">Stream</div>
             <div id="field-name-input-box">
               <span>{{
-                formService.qualificationVariable.educationalQualification
-                  .stream
+                formService.reviewStream
               }}</span>
             </div>
           </div>
@@ -306,8 +303,7 @@
               <div
                 id="technology-input-box"
                 *ngFor="
-                  let item of formService.qualificationVariable
-                    .professionalQualification.experienced.expertisedTech
+                  let item of formService.reviewExpertisedTech
                 "
               >
                 <span>{{ item }}</span>
@@ -333,8 +329,7 @@
               <div
                 id="technology-input-box"
                 *ngFor="
-                  let item of formService.qualificationVariable
-                    .professionalQualification.experienced.familiarTech
+                  let item of formService.reviewFamiliarTech
                 "
               >
                 <span>{{ item }}</span>
@@ -451,8 +446,7 @@
               <div
                 id="technology-input-box"
                 *ngFor="
-                  let item of formService.qualificationVariable
-                    .professionalQualification.fresher?.familiarTech
+                  let item of formService.reviewFamiliarTech
                 "
               >
                 <span>{{ item }}</span>

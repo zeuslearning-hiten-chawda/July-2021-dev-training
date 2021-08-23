@@ -1,6 +1,6 @@
 export interface IEducationalQualification {
-  percentage:string;
-  yearOfPassing:string;
+  percentage:number | undefined;
+  yearOfPassing:number | undefined;
   qualification:string;
   stream:string;
   college:string;

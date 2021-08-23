@@ -75,9 +75,9 @@
                 <select formControlName="qualification">
                   <option
                     *ngFor="let i of formService.qualificationFetched"
-                    [ngValue]="i"
+                    [ngValue]="i.id"
                   >
-                    {{ i }}
+                    {{ i.title }}
                   </option>
                 </select>
               </div>
@@ -88,9 +88,9 @@
                 <select formControlName="college">
                   <option
                     *ngFor="let i of formService.collegeFetched"
-                    [ngValue]="i"
+                    [ngValue]="i.id"
                   >
-                    {{ i }}
+                    {{ i.title }}
                   </option>
 
                   <!-- <option value="0">Pune Institute of Technology (PIT)</option>
@@ -108,9 +108,9 @@
                 <select formControlName="stream">
                   <option
                     *ngFor="let i of formService.streamFetched"
-                    [ngValue]="i"
+                    [ngValue]="i.id"
                   >
-                    {{ i }}
+                    {{ i.title }}
                   </option>
                 </select>
               </div>
@@ -211,16 +211,16 @@
                 </div>
                 <label
                   class="item-job-role"
-                  *ngFor="let data of formService.technologyFetched"
+                  *ngFor="let technology of formService.technologyFetched"
                 >
                   <input
                     type="checkbox"
                     class="item-job-role-checkbox-input"
-                    [value]="data"
+                    [value]="technology.id"
                     (change)="onCheckboxChange($event, 'fresher.familiarTech')"
                   />
                   <div class="item-job-role-checkmark"></div>
-                  <span>{{ data }}</span>
+                  <span>{{ technology.title }}</span>
                 </label>
                 <!-- <label class="item-job-role">
                   <input type="checkbox" class="item-job-role-checkbox-input" />
@@ -360,18 +360,18 @@
                 </div>
                 <label
                   class="item-job-role"
-                  *ngFor="let data of formService.technologyFetched"
+                  *ngFor="let technology of formService.technologyFetched"
                 >
                   <input
                     type="checkbox"
                     class="item-job-role-checkbox-input"
-                    [value]="data"
+                    [value]="technology.id"
                     (change)="
                       onCheckboxChange($event, 'experienced.expertisedTech')
                     "
                   />
                   <div class="item-job-role-checkmark"></div>
-                  <span>{{ data }}</span>
+                  <span>{{ technology.title }}</span>
                 </label>
 
                 <!-- <label class="item-job-role">
@@ -416,18 +416,18 @@
                 </div>
                 <label
                   class="item-job-role"
-                  *ngFor="let data of formService.technologyFetched"
+                  *ngFor="let technology of formService.technologyFetched"
                 >
                   <input
                     type="checkbox"
                     class="item-job-role-checkbox-input"
-                    [value]="data"
+                    [value]="technology.id"
                     (change)="
                       onCheckboxChange($event, 'experienced.familiarTech')
                     "
                   />
                   <div class="item-job-role-checkmark"></div>
-                  <span>{{ data }}</span>
+                  <span>{{ technology.title }}</span>
                 </label>
 
                 <!-- <label class="item-job-role">

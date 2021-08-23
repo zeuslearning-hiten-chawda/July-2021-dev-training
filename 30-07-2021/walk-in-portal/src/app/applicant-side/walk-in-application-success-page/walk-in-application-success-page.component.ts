@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WalkinServiceService } from 'src/app/services/walkin-service.service';
 
 @Component({
   selector: 'app-walk-in-application-success-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalkInApplicationSuccessPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public walkinService:WalkinServiceService) { }
 
   ngOnInit(): void {
   }

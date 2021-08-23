@@ -453,9 +453,10 @@ button.component-button{
 button#qualifications-previous{
   margin-right: 16px;
 }
-input.ng-touched.ng-invalid{
+input.ng-touched.ng-invalid, select.ng-touched.ng-invalid{
   border-bottom: 1px solid red !important;
 }
 button.disabled{
   opacity: 0.4 !important;
 }
+

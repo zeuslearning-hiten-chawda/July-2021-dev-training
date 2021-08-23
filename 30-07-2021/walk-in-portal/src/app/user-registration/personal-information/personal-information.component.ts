@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { IJobRole } from 'src/app/models/job-role.model';
 import { FormServiceService } from 'src/app/services/form-service.service';
 
 @Component({
@@ -10,13 +11,9 @@ import { FormServiceService } from 'src/app/services/form-service.service';
   styleUrls: ['./personal-information.component.css'],
 })
 export class PersonalInformationComponent implements OnInit {
+  isLoading = true;
   @Output() localEventEmitter = new EventEmitter();
   personalInformationForm!: FormGroup;
-  jobRolesArray = [
-    'Instructional Designer',
-    'Software Engineer',
-    'Software Quality Engineer',
-  ];
 
   constructor(
     public formService: FormServiceService,
@@ -25,6 +22,9 @@ export class PersonalInformationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.formService.getJobRoles().subscribe(() => {
+      this.isLoading = false;
+    });
     this.personalInformationForm = new FormGroup({
       firstName: new FormControl(
         this.formService.personalInformationVariable.firstName,
@@ -54,7 +54,8 @@ export class PersonalInformationComponent implements OnInit {
         [Validators.maxLength(20)]
       ),
       referral: new FormControl(
-        this.formService.personalInformationVariable.referral
+        this.formService.personalInformationVariable.referral,
+        [Validators.maxLength(10)]
       ),
       displayPicture: new FormControl(
         this.formService.personalInformationVariable.displayPicture
@@ -87,8 +88,6 @@ export class PersonalInformationComponent implements OnInit {
     //   !!this.personalInformationForm.get('jobRoles')?.value.length)
     // })
   }
-
-
 
   // getResume(event:any){
   //   console.log((this.personalInformationForm.get('resume') as FormControl))
@@ -137,7 +136,7 @@ export class PersonalInformationComponent implements OnInit {
     ) as FormArray;
 
     if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value));
+      checkArray.push(new FormControl(+e.target.value));
     } else {
       let i: number = 0;
       checkArray.controls.forEach((item) => {

@@ -1,38 +1,42 @@
 <app-applicant-side-header></app-applicant-side-header>
 <div id="content-box">
-
-  <div class="item" *ngFor="let walkin of formService.walkInVariable">
-    <span class="expire">{{walkin.expiryDate}}</span>
-    <div class="title">{{walkin.title}}</div>
+  <div class="item" *ngFor="let walkin of walkinService.walkInVariable">
+    <span class="expire">{{
+      walkin.expiryDays > 0 ? "Expires in " + walkin.expiryDays + " days" : ""
+    }}</span>
+    <div class="title">{{ walkin.title }}</div>
     <div class="date-time">Date & Time</div>
     <div class="date-location">
       <span class="date-from-to">
-        {{walkin.startDate}} to {{walkin.endDate}}
+        {{ walkin.startDate }} to {{ walkin.endDate }}
         <div class="separator"></div>
-        <img src="/assets/icons/location_on_black_24dp.svg" alt="">
-        <span class="location">{{walkin.city}}</span>
+        <img src="/assets/icons/location_on_black_24dp.svg" alt="" />
+        <span class="location">{{ getCities(walkin.city) }}</span>
       </span>
     </div>
     <div class="rule"></div>
     <div class="job-roles">Job Roles:</div>
     <div class="job-roles-content">
       <div class="job-roles-item" *ngFor="let job of walkin.jobRoles">
-        <img [src]="'/assets/icons/'+job.url" alt="" >
-        <span>{{job.title}}</span>
+        <img
+          [src]="
+            job.id === 0
+              ? '/assets/icons/Instructional Designer.svg'
+              : job.id === 1
+              ? '/assets/icons/Software Engineer.svg'
+              : '/assets/icons/Software Quality Engineer.svg'
+          "
+          alt=""
+        />
+        <span>{{ job.title }}</span>
         <div class="separator"></div>
       </div>
-
     </div>
     <span class="internship" *ngIf="!!walkin.internshipInformation">
-      {{walkin.internshipInformation}}
+      {{ walkin.internshipInformation }}
     </span>
     <div class="button-box">
-      <button>VIEW MORE DETAILS</button>
+      <button [routerLink]="['/walkin',walkin.id]">VIEW MORE DETAILS</button>
     </div>
   </div>
-
-
-
-
-
 </div>

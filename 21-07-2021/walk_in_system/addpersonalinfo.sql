@@ -1,0 +1,19 @@
+CALL `AddPersonalInformation`(
+	@res,
+	'Hisfdt',
+    'Man',
+    'hitman@gmail.com',
+    '101',
+    '4444488888',
+    NULL,
+    'www.hitman.com',
+    NULL,
+    1,
+    'HITMANGOD',
+    null,
+    null,
+    0,
+    NULL,
+    NULL,
+	"1,2,3"
+)

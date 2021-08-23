@@ -1,281 +1,293 @@
 <app-applicant-side-header></app-applicant-side-header>
-
-<div id="walkin-job">
-  <div class="item item-one">
-    <div class="title">
-      Walk In For Designer Job Role
-      <span id="apply-button-box">
-        <button>APPLY</button>
-      </span>
-    </div>
-    <div class="date-time">Date & Time :</div>
-    <div class="date-location">
-      <span class="date-from-to">
-        10-jul-2021 to 11-jul-2021
-        <div class="separator"></div>
-        <img src="/assets/icons/location_on_black_24dp.svg" alt="">
-        <span class="location">Mumbai</span>
-      </span>
-    </div>
-    <div class="rule"></div>
-    <div class="job-roles">Job Roles :</div>
-    <div class="job-roles-content">
-      <div class="job-roles-item item-one">
-        <img src="/assets/icons/Instructional Designer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
+<div *ngIf="!isLoading">
+  <div id="walkin-job">
+    <div class="item item-one">
+      <div class="title">
+        {{ walkInDetailVariable.title }}
+        <span id="apply-button-box">
+          <button
+            (click)="applyForJob()"
+            [ngClass]="{
+              disabled:
+                checkArray ||
+                timeSlot.value === '' ||
+                updatedResume.value === ''
+            }"
+            [disabled]="
+              checkArray || timeSlot.value === '' || updatedResume.value === ''
+            "
+          >
+            APPLY
+          </button>
+        </span>
       </div>
-      <div class="job-roles-item item-two">
-        <img src="/assets/icons/Software Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
+      <div class="date-time">Date & Time :</div>
+      <div class="date-location">
+        <span class="date-from-to">
+          {{ walkInDetailVariable.startDate }} to
+          {{ walkInDetailVariable.endDate }}
+          <div class="separator"></div>
+          <img src="/assets/icons/location_on_black_24dp.svg" alt="" />
+          <span class="location">{{
+            getCities(walkInDetailVariable.city)
+          }}</span>
+        </span>
       </div>
-      <div class="job-roles-item item-three">
-        <img src="/assets/icons/Software Quality Engineer.svg" alt="" >
-        <span>Instructional Designer</span>
-        <div class="separator"></div>
+      <div class="rule"></div>
+      <div class="job-roles">Job Roles :</div>
+      <div class="job-roles-content">
+        <div
+          class="job-roles-item"
+          *ngFor="let job of walkInDetailVariable.jobRoles"
+        >
+          <img
+            [src]="
+              job.id === 0
+                ? '/assets/icons/Instructional Designer.svg'
+                : job.id === 1
+                ? '/assets/icons/Software Engineer.svg'
+                : '/assets/icons/Software Quality Engineer.svg'
+            "
+            alt=""
+          />
+          <span>{{ job.title }}</span>
+          <div class="separator"></div>
+        </div>
       </div>
     </div>
+    <!-- accordion-job -->
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        <span id="one">Pre-requisites & Application Process</span>
+        <span id="two"></span>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <div class="instruction-item">
+            <div class="field-title">General Instructions :</div>
+            <div class="field-content">
+              <div [innerHTML]="walkInDetailVariable.generalInstructions"></div>
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Instructions for the Exam :</div>
+            <div class="field-content">
+              <!-- <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div> -->
+              <div [innerHTML]="walkInDetailVariable.examInstructions"></div>
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Minimum System Requirements :</div>
+            <div class="field-content">
+              <!-- <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div> -->
+              <div
+                [innerHTML]="walkInDetailVariable.minimumSystemRequirements"
+              ></div>
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Process :</div>
+            <div class="field-content">
+              <!-- <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div> -->
+              <div [innerHTML]="walkInDetailVariable.process"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- accordion-job-end -->
   </div>
-  <!-- accordion-job -->
-  <div class="accordion-item">
-    <div class="accordion-item-header ">
-      <span id="one">Pre-requisites & Application Process</span>
-      <span id="two"></span>
-    </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
 
-        <div class="instruction-item">
-          <div class="field-title">
-            General Instructions :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Instructions for the Exam :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Minimum System Requirements :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Process :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- accordion-job-end -->
-</div>
-
-
-<div id="time-preference">
-    <button id='floating-button'>
-      <img src="/assets/icons/arrow_up_icon.svg" alt="">
-    </button>
-    <div id="time-preference-title">
-      Time Slots & Preference
-    </div>
-    <div id="time-slot-box">
-      <div id="field-name">Select a Time Slot :</div>
-      <div id="time-slot-radio-box">
-          <label  class="radio" id="fresher-radio">
-              <input type="radio" name="myRadioField" class="radio-input" >
-              <div class="radio-radio"></div>
-              <span class="radio-text">9:00 AM to 11:00 AM</span>
+  <form [formGroup]="walkInDetailForm">
+    <div id="time-preference">
+      <button id="floating-button">
+        <img src="/assets/icons/arrow_up_icon.svg" alt="" />
+      </button>
+      <div id="time-preference-title">Time Slots & Preference</div>
+      <div id="time-slot-box">
+        <div id="field-name">Select a Time Slot :</div>
+        <div id="time-slot-radio-box">
+          <label
+            class="radio"
+            *ngFor="let time of walkInDetailVariable.timeSlots"
+          >
+            <input
+              type="radio"
+              name="timeSlot"
+              class="radio-input"
+              formControlName="timeSlot"
+              [value]="time.id"
+            />
+            <div class="radio-radio"></div>
+            <span class="radio-text"
+              >{{ time.startTime }} to {{ time.endTime }}</span
+            >
           </label>
-          <label  class="radio" id="experienced-radio">
-              <input type="radio" name="myRadioField" class="radio-input" >
-              <div class="radio-radio"></div>
-              <span class="radio-text">1:00 PM to 3:00 PM</span>
-          </label>
+          <!-- <label class="radio" id="experienced-radio">
+            <input type="radio" name="myRadioField" class="radio-input" />
+            <div class="radio-radio"></div>
+            <span class="radio-text">1:00 PM to 3:00 PM</span>
+          </label> -->
+        </div>
       </div>
+      <div class="instruction-rule"></div>
+      <div id="job-roles-box">
+        <div id="field-name">Select Your Preference :</div>
+        <label
+          class="item-job-role"
+          *ngFor="let job of walkInDetailVariable.jobRoles; let i = index"
+          formArrayName="jobRolesPreference"
+        >
+          <input
+            type="checkbox"
+            class="item-job-role-checkbox-input"
+            [formControlName]="i"
+          />
+          <div class="item-job-role-checkmark"></div>
+          <span>{{ job.title }}</span>
+        </label>
+        <!-- <label class="item-job-role">
+          <input type="checkbox" class="item-job-role-checkbox-input" />
+          <div class="item-job-role-checkmark"></div>
+          <span>Software Engineer</span>
+        </label>
+        <label class="item-job-role">
+          <input type="checkbox" class="item-job-role-checkbox-input" />
+          <div class="item-job-role-checkmark"></div>
+          <span>Software Quality Engineer</span>
+        </label> -->
+      </div>
+      <div class="instruction-rule"></div>
+      <label id="upload-resume-box">
+        <input type="file" (change)="handleResumeFileInput($event)" />
+        <span>
+          <img
+            src="/assets/icons/upload_resume_icon.png"
+            width="14px"
+            height="16px"
+            alt=""
+          />
+          <span id="updated-resume-text">UPLOAD UPDATED RESUME</span
+          >{{ updatedResume.value.name }}
+        </span>
+      </label>
     </div>
-    <div class="instruction-rule"></div>
-    <div id="job-roles-box">
-      <div id="field-name">Select Your Preference :</div>
-      <label class="item-job-role">
-        <input type="checkbox" class="item-job-role-checkbox-input">
-        <div class="item-job-role-checkmark"></div>
-        <span>Instructional Designer</span>
-      </label>
-      <label class="item-job-role">
-        <input type="checkbox" class="item-job-role-checkbox-input">
-        <div class="item-job-role-checkmark"></div>
-        <span>Software Engineer</span>
-      </label>
-      <label class="item-job-role">
-        <input type="checkbox" class="item-job-role-checkbox-input">
-        <div class="item-job-role-checkmark"></div>
-        <span>Software Quality Engineer</span>
-      </label>
-    </div>
-    <div class="instruction-rule"></div>
-    <label id="upload-resume-box">
-      <input type="file">
-      <span>
-        <img src="/assets/icons/upload_resume_icon.png" width="14px" height="16px" alt="">
-        <span>UPLOAD UPDATED RESUME</span>
-      </span>
-    </label>
-</div>
+  </form>
 
-<div class="instruction-designer-box">
-  <div class="accordion-item">
-    <div class="accordion-item-header role-header">
-      <span id="one">Instructions Designer</span>
-      <span id="two"></span>
-    </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-
-        <div class="instruction-item">
-          <div class="field-title">
-            Gross Compensation Package :
+  <div class="job-box" *ngFor="let job of walkInDetailVariable.jobRoles">
+    <div class="accordion-item">
+      <div class="accordion-item-header role-header">
+        <span id="one">{{ job.title }}</span>
+        <span id="two"></span>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <div class="instruction-item">
+            <div class="field-title">Gross Compensation Package :</div>
+            <div class="field-content">
+              <div [innerHTML]="job.grossPackage"></div>
+              <!-- <div>Rs. 5,00,000 lpa</div> -->
+            </div>
           </div>
-          <div class="field-content">
-            <div>Rs. 5,00,000 lpa</div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Role Description :</div>
+            <div class="field-content">
+              <div [innerHTML]="job.roleDescription"></div>
+              <!-- <div>-We have a two year indemnity agreement</div> -->
+              <!-- <div>-We have a two year indemnity agreement</div> -->
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Requirements :</div>
+            <div class="field-content">
+              <div [innerHTML]="job.requirements"></div>
+              <!-- <div>-We have a two year indemnity agreement</div> -->
+              <!-- <div>-We have a two year indemnity agreement</div> -->
+            </div>
           </div>
         </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Role Description :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Requirements :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
-</div>
 
-
-<div class="software-engineer-box">
-  <div class="accordion-item">
-    <div class="accordion-item-header role-header">
-      <span id="one">Software Engineer</span>
-      <span id="two"></span>
-    </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-
-        <div class="instruction-item">
-          <div class="field-title">
-            Gross Compensation Package :
+  <!-- <div class="software-engineer-box">
+    <div class="accordion-item">
+      <div class="accordion-item-header role-header">
+        <span id="one">Software Engineer</span>
+        <span id="two"></span>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <div class="instruction-item">
+            <div class="field-title">Gross Compensation Package :</div>
+            <div class="field-content">
+              <div>Rs. 5,00,000 lpa</div>
+            </div>
           </div>
-          <div class="field-content">
-            <div>Rs. 5,00,000 lpa</div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Role Description :</div>
+            <div class="field-content">
+              <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div>
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Requirements :</div>
+            <div class="field-content">
+              <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div>
+            </div>
           </div>
         </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Role Description :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Requirements :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
-</div>
 
-
-<div class="software-quality-engineer-box">
-  <div class="accordion-item">
-    <div class="accordion-item-header role-header">
-      <span id="one">Software Quality Engineer</span>
-      <span id="two"></span>
-    </div>
-    <div class="accordion-item-body">
-      <div class="accordion-item-body-content">
-
-        <div class="instruction-item">
-          <div class="field-title">
-            Gross Compensation Package :
+  <div class="software-quality-engineer-box">
+    <div class="accordion-item">
+      <div class="accordion-item-header role-header">
+        <span id="one">Software Quality Engineer</span>
+        <span id="two"></span>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          <div class="instruction-item">
+            <div class="field-title">Gross Compensation Package :</div>
+            <div class="field-content">
+              <div>Rs. 5,00,000 lpa</div>
+            </div>
           </div>
-          <div class="field-content">
-            <div>Rs. 5,00,000 lpa</div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Role Description :</div>
+            <div class="field-content">
+              <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div>
+            </div>
+          </div>
+          <div class="instruction-rule"></div>
+          <div class="instruction-item">
+            <div class="field-title">Requirements :</div>
+            <div class="field-content">
+              <div>-We have a two year indemnity agreement</div>
+              <div>-We have a two year indemnity agreement</div>
+            </div>
           </div>
         </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Role Description :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-        <div class="instruction-rule"></div>
-        <div class="instruction-item">
-          <div class="field-title">
-            Requirements :
-          </div>
-          <div class="field-content">
-            <div>-We have a two year indemnity agreement</div>
-            <div>-We have a two year indemnity agreement</div>
-          </div>
-        </div>
-
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
 
-<!-- small screen button -->
-<button id="apply-button-small-screen">
-  APPLY
-</button>
+  <!-- small screen button -->
+  <button id="apply-button-small-screen">APPLY</button>
+</div>

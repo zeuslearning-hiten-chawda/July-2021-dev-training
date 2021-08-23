@@ -1,0 +1,1 @@
+SELECT date_format((convert_tz(start_time,'+00:00','+05:30')),'%l:%i %p'),date_format((convert_tz(end_time,'+00:00','+05:30')),'%l:%i %p') FROM walk_in_system.time_slots;

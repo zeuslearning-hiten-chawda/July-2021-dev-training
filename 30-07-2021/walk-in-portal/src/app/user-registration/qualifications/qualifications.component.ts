@@ -53,11 +53,7 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
       educationalQualification: new FormGroup({
         percentage: new FormControl(
           this.formService.qualificationVariable.educationalQualification.percentage,
-          [
-            Validators.max(99.99),
-            Validators.min(35),
-            Validators.required,
-          ]
+          [Validators.max(99.99), Validators.min(35), Validators.required]
         ),
         yearOfPassing: new FormControl(
           this.formService.qualificationVariable.educationalQualification.yearOfPassing,
@@ -68,25 +64,28 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
           ]
         ),
         qualification: new FormControl(
-          this.formService.qualificationVariable.educationalQualification.qualification
+          this.formService.qualificationVariable.educationalQualification.qualification,
+          [Validators.required]
         ),
         stream: new FormControl(
-          this.formService.qualificationVariable.educationalQualification.stream
+          this.formService.qualificationVariable.educationalQualification.stream,
+          [Validators.required]
         ),
         college: new FormControl(
-          this.formService.qualificationVariable.educationalQualification.college
+          this.formService.qualificationVariable.educationalQualification.college,
+          [Validators.required]
         ),
         otherCollege: new FormControl(
           this.formService.qualificationVariable.educationalQualification.otherCollege
         ),
         collegeLocation: new FormControl(
           this.formService.qualificationVariable.educationalQualification.collegeLocation,
-          [Validators.required,Validators.maxLength(20)]
+          [Validators.required, Validators.maxLength(20)]
         ),
       }),
       professionalQualification: new FormGroup({
         applicantType: new FormControl(
-          this.formService.qualificationVariable.professionalQualification.applicantType,
+          this.formService.qualificationVariable.professionalQualification.applicantType
           // [Validators.required]
         ),
         fresher: new FormGroup({
@@ -107,7 +106,7 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
         experienced: new FormGroup({
           yearOfExperience: new FormControl(
             this.formService.qualificationVariable.professionalQualification.experienced.yearOfExperience,
-            [Validators.required,Validators.min(1)]
+            [Validators.required, Validators.min(1)]
           ),
           currentCTC: new FormControl(
             this.formService.qualificationVariable.professionalQualification.experienced.currentCTC,
@@ -139,7 +138,8 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
             [Validators.required]
           ),
           noticePeriodDuration: new FormControl(
-            this.formService.qualificationVariable.professionalQualification.experienced.noticePeriodDuration
+            this.formService.qualificationVariable.professionalQualification.experienced.noticePeriodDuration,
+            [Validators.required]
           ),
           zeusTestBool: new FormControl(
             this.formService.qualificationVariable.professionalQualification.experienced.zeusTestBool
@@ -151,13 +151,32 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
       }),
     });
 
-    this.qualificationForm.valueChanges.subscribe(e => {
-      console.log( this.qualificationForm.get('professionalQualification.applicantType')?.value)
-      console.log(this.qualificationForm.get('educationalQualification')?.valid)
-      console.log(this.qualificationForm.get('professionalQualification.fresher.familiarTech')?.value.length > 0)
-      console.log(!(this.qualificationForm.get('educationalQualification')?.valid&&this.qualificationForm.get('professionalQualification.fresher.familiarTech')?.value.length > 0))
-      console.log('---')
-    })
+    this.formService.getEducationalInformation().subscribe(() => {
+    });
+
+    this.qualificationForm.valueChanges.subscribe((e) => {
+      // console.log(
+      //   this.qualificationForm.get('professionalQualification.applicantType')
+      //     ?.value
+      // );
+      // console.log(
+      //   this.qualificationForm.get('educationalQualification')?.valid
+      // );
+      // console.log(
+      //   this.qualificationForm.get(
+      //     'professionalQualification.fresher.familiarTech'
+      //   )?.value.length > 0
+      // );
+      // console.log(
+      //   !(
+      //     this.qualificationForm.get('educationalQualification')?.valid &&
+      //     this.qualificationForm.get(
+      //       'professionalQualification.fresher.familiarTech'
+      //     )?.value.length > 0
+      //   )
+      // );
+      // console.log('---');
+    });
   }
 
   onCheckboxChange(e: any, applicantType: string) {
@@ -166,7 +185,7 @@ export class QualificationsComponent implements OnInit, AfterViewInit {
     ) as FormArray;
     console.log(checkArray);
     if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value));
+      checkArray.push(new FormControl(+e.target.value));
     } else {
       let i: number = 0;
       checkArray.controls.forEach((item) => {
